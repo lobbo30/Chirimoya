@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using ChirimoyaLib;
 
-namespace Chirimoya.Tests
+namespace Chirimoya.MEP.Tests
 {
     [TestClass]
     public class SolveTests
