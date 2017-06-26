@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chirimoya.Tests", "Chirimoya.Tests\Chirimoya.Tests.csproj", "{180E100B-275F-4C49-AE3F-E713078D6524}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChirimoyaLib", "ChirimoyaLib\ChirimoyaLib.csproj", "{2119FB58-9B22-4D7F-A608-FCF6DC52A2E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{180E100B-275F-4C49-AE3F-E713078D6524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{180E100B-275F-4C49-AE3F-E713078D6524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{180E100B-275F-4C49-AE3F-E713078D6524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{180E100B-275F-4C49-AE3F-E713078D6524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2119FB58-9B22-4D7F-A608-FCF6DC52A2E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2119FB58-9B22-4D7F-A608-FCF6DC52A2E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2119FB58-9B22-4D7F-A608-FCF6DC52A2E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2119FB58-9B22-4D7F-A608-FCF6DC52A2E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
