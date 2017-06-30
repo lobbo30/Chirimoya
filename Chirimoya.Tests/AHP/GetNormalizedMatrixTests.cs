@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ChirimoyaLib;
+using MathNet.Numerics.LinearAlgebra;
 
 namespace Chirimoya.AHP.Tests
 {
@@ -17,6 +18,8 @@ namespace Chirimoya.AHP.Tests
 
             double[,] resultado = AnalyticHierarchyProcess.GetNormalizedMatrix(ref matrix);
 
+            //Matrix<double> testing = CreateMatrix.Random<double>(100, 100);
+
             Assert.AreEqual(0.6923, Math.Round(resultado[0, 0], 4));
             Assert.AreEqual(0.7200, Math.Round(resultado[0, 1], 4));
             Assert.AreEqual(0.5625, Math.Round(resultado[0, 2], 4));
@@ -26,6 +29,7 @@ namespace Chirimoya.AHP.Tests
             Assert.AreEqual(0.0769, Math.Round(resultado[2, 0], 4));
             Assert.AreEqual(0.0400, Math.Round(resultado[2, 1], 4));
             Assert.AreEqual(0.0625, Math.Round(resultado[2, 2], 4));
+
         }
 
         [TestMethod]
