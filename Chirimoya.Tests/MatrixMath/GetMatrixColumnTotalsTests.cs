@@ -16,8 +16,8 @@ namespace Chirimoya.AHP.Tests
             matrix[1, 2] = 6.0;
 
             //AnalyticHierarchyProcess.FormatMatrix(ref matrix);
-
-            double[] resultado = AnalyticHierarchyProcess.GetMatrixColumnTotals(ref matrix);
+            
+            double[] resultado = MatrixMath.GetMatrixColumnTotals(ref matrix);
 
             Assert.AreEqual(1.4444, Math.Round(resultado[0], 4));
             Assert.AreEqual(4.1667, Math.Round(resultado[1], 4));
@@ -34,7 +34,7 @@ namespace Chirimoya.AHP.Tests
 
             //AnalyticHierarchyProcess.FormatMatrix(ref matrix);
 
-            double[] resultado = AnalyticHierarchyProcess.GetMatrixColumnTotals(ref matrix);
+            double[] resultado = MatrixMath.GetMatrixColumnTotals(ref matrix);
 
             Assert.AreEqual(1.4167, Math.Round(resultado[0], 4));
             Assert.AreEqual(5.2, resultado[1]);

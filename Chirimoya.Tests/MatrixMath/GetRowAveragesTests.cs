@@ -15,7 +15,7 @@ namespace Chirimoya.AHP.Tests
             matrix[0, 2] = 9f;
             matrix[1, 2] = 6f;
 
-            double[] resultado = AnalyticHierarchyProcess.GetRowAverages(ref matrix);
+            double[] resultado = MatrixMath.GetRowAverages(ref matrix);
 
             Assert.AreEqual(0.6583, Math.Round(resultado[0], 4));
             Assert.AreEqual(0.2819, Math.Round(resultado[1], 4));
@@ -30,7 +30,7 @@ namespace Chirimoya.AHP.Tests
             matrix[0, 2] = 6f;
             matrix[1, 2] = 5f;
 
-            double[] resultado = AnalyticHierarchyProcess.GetRowAverages(ref matrix);
+            double[] resultado = MatrixMath.GetRowAverages(ref matrix);
 
             Assert.AreEqual(0.6584, Math.Round(resultado[0], 4));
             Assert.AreEqual(0.2618, Math.Round(resultado[1], 4));

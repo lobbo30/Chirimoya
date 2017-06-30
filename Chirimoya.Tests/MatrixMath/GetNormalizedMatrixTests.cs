@@ -16,7 +16,7 @@ namespace Chirimoya.AHP.Tests
             matrix[0, 2] = 9.0;
             matrix[1, 2] = 6.0;
 
-            double[,] resultado = AnalyticHierarchyProcess.GetNormalizedMatrix(ref matrix);
+            double[,] resultado = MatrixMath.GetNormalizedMatrix(ref matrix);
 
             //Matrix<double> testing = CreateMatrix.Random<double>(100, 100);
 
@@ -40,7 +40,7 @@ namespace Chirimoya.AHP.Tests
             matrix[0, 2] = 6.0;
             matrix[1, 2] = 5.0;
 
-            double[,] resultado = AnalyticHierarchyProcess.GetNormalizedMatrix(ref matrix);
+            double[,] resultado = MatrixMath.GetNormalizedMatrix(ref matrix);
 
             Assert.AreEqual(0.7059, Math.Round(resultado[0, 0], 4));
             Assert.AreEqual(0.7692, Math.Round(resultado[0, 1], 4));

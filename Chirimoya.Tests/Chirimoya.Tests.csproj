@@ -62,13 +62,16 @@
     <Compile Include="AHP\GetWeightedSumVectorTests.cs" />
     <Compile Include="AHP\GetConsistencyVectorTests.cs" />
     <Compile Include="AHP\GetConsistencyIndexTests.cs" />
-    <Compile Include="MEP\GetWeightedEvaluationTests.cs" />
+    <Compile Include="AHP\GetConsistencyRatioTests.cs" />
+    <Compile Include="MFEP\GetWeightedEvaluationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MEP\SolveTests.cs" />
-    <Compile Include="AHP\GetRowAveragesTests.cs" />
+    <Compile Include="MFEP\SolveTests.cs" />
+    <Compile Include="MatrixMath\GetRowAveragesTests.cs" />
     <Compile Include="AHP\FormatMatrixTests.cs" />
-    <Compile Include="AHP\GetMatrixColumnTotalsTests.cs" />
-    <Compile Include="AHP\GetNormalizedMatrixTests.cs" />
+    <Compile Include="MatrixMath\GetMatrixColumnTotalsTests.cs" />
+    <Compile Include="MatrixMath\GetNormalizedMatrixTests.cs" />
+    <Compile Include="MatrixMath\GetColumnTests.cs" />
+    <Compile Include="MatrixMath\GetRowTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChirimoyaLib\ChirimoyaLib.csproj">
