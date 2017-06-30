@@ -27,6 +27,28 @@ namespace ChirimoyaLib
         {
             return Sum(ref vector) / vector.Length;
         }
+
+        //public static double Max(ref double[] vector)
+        //{
+        //    double temp = 0.0;
+        //    for (int i = 0; i < vector.Length; i++) // 4, 3, 5 , 1
+        //    {
+        //        if (vector[i] > temp)
+        //        {
+        //            temp = vector[i];
+        //        }
+        //    }
+        //    return temp;
+        //}
+        public static double[] Div(ref double[] vector1, ref double[] vector2)
+        {
+            double[] result = new double[3];
+            for (int i = 0; i < 3; i++)
+            {
+                result[i] = vector1[i] / vector2[i];
+            }
+            return result;
+        }
     }
 
     public class MatrixMath
@@ -66,15 +88,21 @@ namespace ChirimoyaLib
         public static double[,] GetNormalizedMatrix(ref double[,] matrix)
         {
             double[] matrixColumnTotals = GetMatrixColumnTotals(ref matrix);
-            double[,] normalizedMatrix = new double[3, 3];
+            double[,] normalizedMatrix = Div(ref matrix, ref matrixColumnTotals);
+            return normalizedMatrix;
+        }
+
+        private static double[,] Div(ref double[,] matrix, ref double[] vector)
+        {
+            double[,] result = new double[3, 3];
             for (int m = 0; m < matrix.GetLength(0); m++)
             {
                 for (int n = 0; n < matrix.GetLength(1); n++)
                 {
-                    normalizedMatrix[m, n] = matrix[m, n] / matrixColumnTotals[n];
+                    result[m, n] = matrix[m, n] / vector[n];
                 }
             }
-            return normalizedMatrix;
+            return result;
         }
 
         public static double[] GetRowAverages(ref double[,] matrix)

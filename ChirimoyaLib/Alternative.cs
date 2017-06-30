@@ -8,6 +8,22 @@ namespace ChirimoyaLib
         public int ID { get; set; }
         public string AlternativeName { get; set; }
         public List<AlternativeValue> AlternativeValues { get; set; }
+
+        //private bool isConsistent;
+
+        //public bool IsConsistent
+        //{
+        //    get
+        //    {
+        //        if (AnalyticHierarchyProcess.GetConsistencyRatio(AlternativeValues) <= 0.1)
+        //        {
+        //            return true;
+        //        }
+        //        return false;
+        //    }
+
+        //}
+
     }
 
     public class AlternativeValue

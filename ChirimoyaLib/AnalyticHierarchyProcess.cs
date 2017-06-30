@@ -16,8 +16,8 @@ namespace ChirimoyaLib
                 { 6, 1.24 },
                 { 7, 1.32 },
                 { 8, 1.41 },
-                { 9, 1.45 },
-                { 10, 1.51 }
+                { 9, 1.45 }
+                //{ 10, 1.51 }
             };
             return GetConsistencyIndex(ref matrix) / ramdonConsistencyIndex[3];
         }
@@ -27,19 +27,14 @@ namespace ChirimoyaLib
             double[] consistencyVector = GetConsistencyVector(ref matrix);
             double lambda = VectorMath.Avg(ref consistencyVector);
             int n = consistencyVector.Length;
-            return (lambda - n) / (n - 1);            
+            return (lambda - n) / (n - 1);
         }
 
         public static double[] GetConsistencyVector(ref double[,] matrix)
         {
             double[] weightedSumVector = GetWeightedSumVector(ref matrix);
             double[] rowAverages = MatrixMath.GetRowAverages(ref matrix);
-            double[] consistencyVector = new double[3];
-            for (int i = 0; i < 3; i++)
-            {
-                consistencyVector[i] = weightedSumVector[i] / rowAverages[i];
-            }
-            return consistencyVector;
+            return VectorMath.Div(ref weightedSumVector, ref rowAverages);
         }
 
         public static double[] GetWeightedSumVector(ref double[,] matrix)
