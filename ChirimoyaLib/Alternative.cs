@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ChirimoyaLib
 {
@@ -35,13 +36,35 @@ namespace ChirimoyaLib
 
     public class Factor
     {
+        public int ID { get; set; }
         public string FactorName { get; set; }
+        //[Range(0.0, 1.0)]
         public float Weight { get; set; }
         public List<AlternativeValue> AlternativeValues { get; set; }
 
         public Factor()
         {
         
-        }
+        }        
+    }
+
+    public enum PreferenceLevel : byte
+    {
+        EquallyPreferred = 1,
+        EquallyToModeratelyPreferred,
+        ModeratelyPreferred,
+        ModeratelyToStronglyPreferred,
+        StronglyPreferred,
+        StronglyToVeryStronglyPreferred,
+        VeryStronglyPreferred,
+        VeryToExtremelyStronglyPreferred,
+        ExtremelyPreferred
+    }
+
+    public class Option
+    {
+        public Factor FirstFactor { get; set; }
+        public Factor SecondFactor { get; set; }
+        public PreferenceLevel Preference { get; set; }
     }
 }

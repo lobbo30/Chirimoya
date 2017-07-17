@@ -5,11 +5,11 @@ using System.Text;
 
 namespace ChirimoyaLib
 {
-    public class Matrix
-    {
-        //public double[,] Value { get; set; }
+    //public class Matrix
+    //{
+    //    //public double[,] Value { get; set; }
 
-    }
+    //}
 
     public class VectorMath
     {
@@ -92,7 +92,22 @@ namespace ChirimoyaLib
             return normalizedMatrix;
         }
 
-        private static double[,] Div(ref double[,] matrix, ref double[] vector)
+        public static double[] Multiply(ref double[,] matrix, ref double[] vector)
+        {
+            double[] result = new double[3];
+            for (int m = 0; m < 3; m++)
+            {
+                double suma = 0.0;
+                for (int n = 0; n < 3; n++)
+                {
+                    suma += vector[n] * matrix[m, n];
+                }
+                result[m] = suma;
+            }
+            return result;
+        }
+
+        public static double[,] Div(ref double[,] matrix, ref double[] vector)
         {
             double[,] result = new double[3, 3];
             for (int m = 0; m < matrix.GetLength(0); m++)

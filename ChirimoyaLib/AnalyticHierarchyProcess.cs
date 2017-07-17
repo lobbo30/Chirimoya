@@ -5,6 +5,8 @@ namespace ChirimoyaLib
 {
     public class AnalyticHierarchyProcess
     {
+        //public static double?[,] Matrix { get; set; }
+
         public static double GetConsistencyRatio(ref double[,] matrix)
         {
             IDictionary<int, double> ramdonConsistencyIndex = new Dictionary<int, double>()
@@ -19,8 +21,77 @@ namespace ChirimoyaLib
                 { 9, 1.45 }
                 //{ 10, 1.51 }
             };
-            return GetConsistencyIndex(ref matrix) / ramdonConsistencyIndex[3];
+            return GetConsistencyIndex(ref matrix) / ramdonConsistencyIndex[matrix.GetLength(0)];
         }
+
+        public static double[,] GeneratePairwiseMatrix(List<Factor> factors, List<Option> options)
+        {
+            double[,] matrix = new double[3, 3];
+            for (int i = 0; i < 3; i++)
+            {
+                matrix[i, i] = 1.0;
+            }
+            foreach (var option in options)
+            {
+                int row = factors.FindIndex(f => f.ID == option.FirstFactor.ID);
+                int column = factors.FindIndex(f => f.ID == option.SecondFactor.ID);
+
+                double valor = SelectValue(option);
+
+                matrix[row, column] = valor;
+                matrix[column, row] = 1.0 / valor;
+            }
+            return matrix;
+        }
+
+        private static double SelectValue(Option option)
+        {
+            double valor = 0.0;
+            switch (option.Preference)
+            {
+                case PreferenceLevel.EquallyPreferred:
+                    valor = 1.0;
+                    break;
+                case PreferenceLevel.EquallyToModeratelyPreferred:
+                    valor = 2.0;
+                    break;
+                case PreferenceLevel.ModeratelyPreferred:
+                    valor = 3.0;
+                    break;
+                case PreferenceLevel.ModeratelyToStronglyPreferred:
+                    valor = 4.0;
+                    break;
+                case PreferenceLevel.StronglyPreferred:
+                    valor = 5.0;
+                    break;
+                case PreferenceLevel.StronglyToVeryStronglyPreferred:
+                    valor = 6.0;
+                    break;
+                case PreferenceLevel.VeryStronglyPreferred:
+                    valor = 7.0;
+                    break;
+                case PreferenceLevel.VeryToExtremelyStronglyPreferred:
+                    valor = 8.0;
+                    break;
+                case PreferenceLevel.ExtremelyPreferred:
+                    valor = 9.0;
+                    break;
+            }
+            return valor;
+        }
+
+        //public static double[,] Assign(List<Factor> factors, Factor factor1, Factor factor2, double valor)
+        //{
+
+
+        //    int row = factors.FindIndex(f => f.ID == factor1.ID);
+        //    int column = factors.FindIndex(f => f.ID == factor2.ID);
+
+        //    Matrix = new double?[3, 3];
+        //    Matrix[row, column] = valor;
+        //    Matrix[column, row] = 1 / valor;
+        //    return matrix;
+        //}
 
         public static double GetConsistencyIndex(ref double[,] matrix)
         {
@@ -40,17 +111,7 @@ namespace ChirimoyaLib
         public static double[] GetWeightedSumVector(ref double[,] matrix)
         {
             double[] rowAverages = MatrixMath.GetRowAverages(ref matrix);
-            double[] weightedSumVector = new double[3];
-            for (int m = 0; m < 3; m++)
-            {
-                double suma = 0.0;
-                for (int n = 0; n < 3; n++)
-                {
-                    suma += rowAverages[n] * matrix[m, n];
-                }
-                weightedSumVector[m] = suma;
-            }
-            return weightedSumVector;
+            return MatrixMath.Multiply(ref matrix, ref rowAverages);
         }
 
         public static void FormatMatrix(ref double[,] matrix)
