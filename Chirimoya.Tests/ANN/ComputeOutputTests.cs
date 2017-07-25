@@ -12,8 +12,8 @@ namespace Chirimoya.Tests.ANN
         {
             Input[] inputs = new Input[]
             {
-                new Input() { InputValue = 3.0, Weight = 0.0065 },
-                new Input() { InputValue = 4.0, Weight = 0.0123 }
+                new Input() { XValue = 3.0, Weight = 0.0065 },
+                new Input() { XValue = 4.0, Weight = 0.0123 }
             };
                         
             double bias = -0.0906;
@@ -29,8 +29,8 @@ namespace Chirimoya.Tests.ANN
         {
             Input[] inputs = new Input[]
             {
-                new Input() { InputValue = 1.5, Weight = 0.0012 },
-                new Input() { InputValue = 2.0, Weight = 0.0002 }
+                new Input() { XValue = 1.5, Weight = 0.0012 },
+                new Input() { XValue = 2.0, Weight = 0.0002 }
             };
 
             double bias = -0.0019;
