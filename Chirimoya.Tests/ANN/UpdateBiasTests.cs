@@ -13,8 +13,9 @@ namespace Chirimoya.Tests.ANN
             double bias = -0.0906;
             double computedOutput = 1.0;
             double expectedOutput = -1.0;
+            double delta = computedOutput - expectedOutput;
             double alpha = 0.001;
-            double resultado = PerceptronManager.UpdateBias(bias, computedOutput, expectedOutput, alpha);
+            double resultado = PerceptronManager.UpdateBias(bias, delta, alpha);
 
             Assert.AreEqual(-0.0926, resultado);
         }
@@ -25,8 +26,9 @@ namespace Chirimoya.Tests.ANN
             double bias = -0.0123;
             double computedOutput = -1.0;
             double expectedOutput = 1.0;
+            double delta = computedOutput - expectedOutput;
             double alpha = 0.0001;
-            double resultado = PerceptronManager.UpdateBias(bias, computedOutput, expectedOutput, alpha);
+            double resultado = PerceptronManager.UpdateBias(bias, delta, alpha);
 
             Assert.AreEqual(-0.0121, resultado);
         }

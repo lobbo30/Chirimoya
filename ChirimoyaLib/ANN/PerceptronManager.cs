@@ -4,12 +4,17 @@ namespace ChirimoyaLib
 {
     public class PerceptronManager
     {
-        public double ComputeOutput(Input[] inputs, double bias)
+        public double ComputeOutput(double[] inputs, double[] weights, double bias)
         {
+            if (inputs.Length != weights.Length)
+            {
+                throw new ArgumentException();
+            }
+
             double suma = 0.0;
             for (int i = 0; i < inputs.Length; i++)
             {
-                suma += inputs[i].XValue * inputs[i].Weight;
+                suma += inputs[i] * weights[i];
             }
             suma += bias;
             return Activation(suma);
@@ -24,52 +29,77 @@ namespace ChirimoyaLib
             return -1.0;
         }
 
-        public static Input[] UpdateWeights(Input[] inputs, double delta, double alpha)
+        public static double[] UpdateWeights(double[] inputs, double[] weights, double delta, double alpha)
         {
             if (delta == 0.0) // Para acelerar el algoritmo
             {
-                return inputs;
+                return weights;
             }
             for (int i = 0; i < inputs.Length; i++)
             {
-                double temp = alpha * delta * inputs[i].XValue;
-                inputs[i].Weight = UpdateWeight(inputs[i], temp);
+                double temp = alpha * delta * inputs[i];
+                weights[i] = UpdateWeight(inputs[i], weights[i], temp);
             }
-            return inputs;
+            return weights;
         }
 
-        public static double UpdateWeight(Input input, double temp)
+        public static double UpdateWeight(double input, double weight, double temp)
         {
-            if (input.XValue < 0.0)
+            if (input < 0.0)
             {
-                return input.Weight + temp;
+                return weight + temp;
             }
-            return input.Weight - temp;
+            return weight - temp;
         }
 
-        //public static double DecreaseWeight(Input input, double delta, double alpha)
-        //{
-        //    //double delta = computedOutput - expectedOutput;
-        //    double temp = alpha * delta * input.XValue;
-        //    if (delta > 0.0)
-        //    {
-        //        return NewMethod(input, temp);
-        //    }
-        //    return input.Weight - temp;
-        //}
-
-        //private static double NewMethod(Input input, double temp)
-        //{
-        //    if (input.XValue < 0.0)
-        //        return input.Weight + temp;
-        //    else
-        //        return input.Weight - temp;
-        //}
-
-        public static double UpdateBias(double bias, double computedOutput, double expectedOutput, double alpha)
+        public TrainingResult Train(TrainData[] trainData, double[] weights, double bias, double alpha, int maxEpochs)
         {
-            double delta = computedOutput - expectedOutput;
+            double[] newWeigths = weights;
+            double newBias = bias;
+
+            for (int epoch = 0; epoch < maxEpochs; epoch++)
+            {
+                for (int i = 0; i < trainData.Length; i++)
+                {
+                    double computedOutput = ComputeOutput(trainData[i].Inputs, newWeigths, newBias);
+                    double expectedOutput = trainData[i].Output;
+                    double delta = computedOutput - expectedOutput;
+
+                    newWeigths = UpdateWeights(trainData[i].Inputs, newWeigths, delta, alpha);
+                    newBias = UpdateBias(newBias, delta, alpha);
+                }
+            }
+
+            return new TrainingResult() { Weights = newWeigths, Bias = newBias };
+        }
+
+        public static double UpdateBias(double bias, double delta, double alpha)
+        {
+            //double delta = computedOutput - expectedOutput;
             return bias - (alpha * delta);
         }
+
+        //public TrainingResult Train(TrainData[] trainData, double alpha, int maxEpochs)
+        //{
+        //    Initializer initializer = new Initializer();
+        //    double bias = initializer.InitializeValue(-1.0, 1.0);
+
+        //    int epoch = 0;
+        //    while (epoch < maxEpochs)
+        //    {
+        //        for (int i = 0; i < trainData.Length; i++)
+        //        {
+        //            double computedOutput = ComputeOutput(trainData[i].Inputs, trainData[i].Bias);
+        //            double expectedOutput = trainData[i].Output;
+        //            double delta = computedOutput - expectedOutput;
+        //            //trainData[i].Inputs = UpdateWeights(trainData[i].Inputs, delta, alpha);
+        //            //trainData[i].Bias = UpdateBias(trainData[i].Bias, delta, alpha);
+        //            bias = UpdateBias(bias, delta, alpha);
+        //        }
+        //        epoch++;
+        //    }            
+
+        //    return new TrainingResult() { Weights = new double[] { }, Bias = }
+        //}
     }
 }
