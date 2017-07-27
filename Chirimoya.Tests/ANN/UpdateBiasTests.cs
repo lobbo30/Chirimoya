@@ -32,5 +32,18 @@ namespace Chirimoya.Tests.ANN
 
             Assert.AreEqual(-0.0121, resultado);
         }
+
+        [TestMethod]
+        public void UpdateBias_WhenDeltaIsZero()
+        {
+            double bias = -0.0906;
+            double computedOutput = 1.0;
+            double expectedOutput = 1.0;
+            double delta = computedOutput - expectedOutput;
+            double alpha = 0.001;
+            double resultado = PerceptronManager.UpdateBias(bias, delta, alpha);
+
+            Assert.AreEqual(-0.0906, resultado);
+        }
     }
 }

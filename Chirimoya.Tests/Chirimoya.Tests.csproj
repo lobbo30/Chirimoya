@@ -69,6 +69,8 @@
     <Compile Include="ANN\InitializeValueTests.cs" />
     <Compile Include="ANN\ComputeOutputTests.cs" />
     <Compile Include="ANN\TrainTests.cs" />
+    <Compile Include="ANN\InitializeSequenceTests.cs" />
+    <Compile Include="ANN\ShuffleSequenceTests.cs" />
     <Compile Include="ANN\UpdateWeightsTests.cs" />
     <Compile Include="ANN\UpdateWeightTests.cs" />
     <Compile Include="ANN\UpdateBiasTests.cs" />

@@ -57,15 +57,20 @@ namespace ChirimoyaLib
             double[] newWeigths = weights;
             double newBias = bias;
 
+            int[] sequence = Initializer.InitializeSequence(trainData.Length);
+            Random random = new Random();
+
             for (int epoch = 0; epoch < maxEpochs; epoch++)
             {
+                Shuffler.ShuffleSequence(sequence, random);
                 for (int i = 0; i < trainData.Length; i++)
                 {
-                    double computedOutput = ComputeOutput(trainData[i].Inputs, newWeigths, newBias);
-                    double expectedOutput = trainData[i].Output;
+                    int index = sequence[i];
+                    double computedOutput = ComputeOutput(trainData[index].Inputs, newWeigths, newBias);
+                    double expectedOutput = trainData[index].Output;
                     double delta = computedOutput - expectedOutput;
 
-                    newWeigths = UpdateWeights(trainData[i].Inputs, newWeigths, delta, alpha);
+                    newWeigths = UpdateWeights(trainData[index].Inputs, newWeigths, delta, alpha);
                     newBias = UpdateBias(newBias, delta, alpha);
                 }
             }
@@ -75,31 +80,11 @@ namespace ChirimoyaLib
 
         public static double UpdateBias(double bias, double delta, double alpha)
         {
-            //double delta = computedOutput - expectedOutput;
+            if (delta == 0.0)
+            {
+                return bias;
+            }
             return bias - (alpha * delta);
         }
-
-        //public TrainingResult Train(TrainData[] trainData, double alpha, int maxEpochs)
-        //{
-        //    Initializer initializer = new Initializer();
-        //    double bias = initializer.InitializeValue(-1.0, 1.0);
-
-        //    int epoch = 0;
-        //    while (epoch < maxEpochs)
-        //    {
-        //        for (int i = 0; i < trainData.Length; i++)
-        //        {
-        //            double computedOutput = ComputeOutput(trainData[i].Inputs, trainData[i].Bias);
-        //            double expectedOutput = trainData[i].Output;
-        //            double delta = computedOutput - expectedOutput;
-        //            //trainData[i].Inputs = UpdateWeights(trainData[i].Inputs, delta, alpha);
-        //            //trainData[i].Bias = UpdateBias(trainData[i].Bias, delta, alpha);
-        //            bias = UpdateBias(bias, delta, alpha);
-        //        }
-        //        epoch++;
-        //    }            
-
-        //    return new TrainingResult() { Weights = new double[] { }, Bias = }
-        //}
     }
 }
