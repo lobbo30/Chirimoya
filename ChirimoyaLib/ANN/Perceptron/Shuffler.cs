@@ -9,9 +9,9 @@ namespace ChirimoyaLib
             //Random random = new Random();
             for (int i = 0; i < sequence.Length; i++)
             {
-                int r = random.Next(i, sequence.Length); // Es correcto, el límite superior es exclusivo.
-                int temp = sequence[r];
-                sequence[r] = sequence[i];
+                int randomIndex = random.Next(i, sequence.Length); // Es correcto, el límite superior es exclusivo.
+                int temp = sequence[randomIndex];
+                sequence[randomIndex] = sequence[i];
                 sequence[i] = temp;
             }
         }

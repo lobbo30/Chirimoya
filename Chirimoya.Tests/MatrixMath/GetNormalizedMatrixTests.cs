@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ChirimoyaLib;
-using MathNet.Numerics.LinearAlgebra;
 
 namespace Chirimoya.AHP.Tests
 {

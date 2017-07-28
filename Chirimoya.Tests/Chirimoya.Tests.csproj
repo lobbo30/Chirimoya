@@ -35,10 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MathNet.Numerics, Version=3.19.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MathNet.Numerics.3.19.0\lib\net40\MathNet.Numerics.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core">
@@ -64,16 +60,16 @@
     <Compile Include="AHP\GetConsistencyVectorTests.cs" />
     <Compile Include="AHP\GetConsistencyIndexTests.cs" />
     <Compile Include="AHP\GetConsistencyRatioTests.cs" />
-    <Compile Include="ANN\DummyEncodingTests.cs" />
-    <Compile Include="ANN\EffectsEncodingTests.cs" />
-    <Compile Include="ANN\InitializeValueTests.cs" />
-    <Compile Include="ANN\ComputeOutputTests.cs" />
-    <Compile Include="ANN\TrainTests.cs" />
-    <Compile Include="ANN\InitializeSequenceTests.cs" />
-    <Compile Include="ANN\ShuffleSequenceTests.cs" />
-    <Compile Include="ANN\UpdateWeightsTests.cs" />
-    <Compile Include="ANN\UpdateWeightTests.cs" />
-    <Compile Include="ANN\UpdateBiasTests.cs" />
+    <Compile Include="ANN\Perceptron\DummyEncodingTests.cs" />
+    <Compile Include="ANN\Perceptron\EffectsEncodingTests.cs" />
+    <Compile Include="ANN\Perceptron\InitializeValueTests.cs" />
+    <Compile Include="ANN\Perceptron\ComputeOutputTests.cs" />
+    <Compile Include="ANN\Perceptron\TrainTests.cs" />
+    <Compile Include="ANN\Perceptron\InitializeSequenceTests.cs" />
+    <Compile Include="ANN\Perceptron\ShuffleSequenceTests.cs" />
+    <Compile Include="ANN\Perceptron\UpdateWeightsTests.cs" />
+    <Compile Include="ANN\Perceptron\UpdateWeightTests.cs" />
+    <Compile Include="ANN\Perceptron\UpdateBiasTests.cs" />
     <Compile Include="MFEP\GetWeightedEvaluationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MFEP\SolveTests.cs" />
@@ -84,7 +80,7 @@
     <Compile Include="MatrixMath\GetColumnTests.cs" />
     <Compile Include="MatrixMath\GetRowTests.cs" />
     <Compile Include="AHP\GeneratePairwiseMatrixTests.cs" />
-    <Compile Include="GetEOQTests.cs" />
+    <Compile Include="Inventory\GetEOQTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChirimoyaLib\ChirimoyaLib.csproj">
@@ -92,12 +88,7 @@
       <Name>ChirimoyaLib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Inventory\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

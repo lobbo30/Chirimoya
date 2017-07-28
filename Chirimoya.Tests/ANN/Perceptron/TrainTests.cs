@@ -34,10 +34,7 @@ namespace Chirimoya.Tests.ANN
             PerceptronManager perceptronManager = new PerceptronManager();
             TrainingResult trainingResult = perceptronManager.Train(trainData, weights, bias, alpha, maxEpochs);
 
-            //Assert.IsTrue(resultado.Weights[0] >= -1.0 && resultado.Weights[0] <= 1.0);
-            //Assert.IsTrue(resultado.Weights[1] >= -1.0 && resultado.Weights[1] <= 1.0);
-            //Assert.IsTrue(resultado.Bias >= -1.0 && resultado.Bias <= 1.0);
-            double[] newInputs = new double[] { 7.0, 7.0 };
+            double[] newInputs = new double[] { 7.0, 6.0 };
             double resultado = perceptronManager.ComputeOutput(newInputs, trainingResult.Weights, trainingResult.Bias);
             double[] newInputs2 = new double[] { 3.0, 2.5 };
             double resultado2 = perceptronManager.ComputeOutput(newInputs2, trainingResult.Weights, trainingResult.Bias);

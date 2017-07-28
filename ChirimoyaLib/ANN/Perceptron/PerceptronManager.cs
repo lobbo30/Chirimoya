@@ -54,7 +54,7 @@ namespace ChirimoyaLib
 
         public TrainingResult Train(TrainData[] trainData, double[] weights, double bias, double alpha, int maxEpochs)
         {
-            double[] newWeigths = weights;
+            double[] newWeights = weights;
             double newBias = bias;
 
             int[] sequence = Initializer.InitializeSequence(trainData.Length);
@@ -66,16 +66,21 @@ namespace ChirimoyaLib
                 for (int i = 0; i < trainData.Length; i++)
                 {
                     int index = sequence[i];
-                    double computedOutput = ComputeOutput(trainData[index].Inputs, newWeigths, newBias);
-                    double expectedOutput = trainData[index].Output;
-                    double delta = computedOutput - expectedOutput;
+                    double delta = GetDelta(trainData[index], newWeights, newBias);
 
-                    newWeigths = UpdateWeights(trainData[index].Inputs, newWeigths, delta, alpha);
+                    newWeights = UpdateWeights(trainData[index].Inputs, newWeights, delta, alpha);
                     newBias = UpdateBias(newBias, delta, alpha);
                 }
             }
 
-            return new TrainingResult() { Weights = newWeigths, Bias = newBias };
+            return new TrainingResult() { Weights = newWeights, Bias = newBias };
+        }
+
+        private double GetDelta(TrainData trainData, double[] weights, double bias)
+        {
+            double computedOutput = ComputeOutput(trainData.Inputs, weights, bias);
+            double expectedOutput = trainData.Output;
+            return computedOutput - expectedOutput;
         }
 
         public static double UpdateBias(double bias, double delta, double alpha)
