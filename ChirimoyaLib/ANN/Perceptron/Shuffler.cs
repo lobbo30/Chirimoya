@@ -2,9 +2,9 @@
 
 namespace ChirimoyaLib
 {
-    public class Shuffler
+    public class SequenceShuffler
     {
-        public static void ShuffleSequence(int[] sequence, Random random)
+        public static void Shuffle(int[] sequence, Random random)
         {
             //Random random = new Random();
             for (int i = 0; i < sequence.Length; i++)

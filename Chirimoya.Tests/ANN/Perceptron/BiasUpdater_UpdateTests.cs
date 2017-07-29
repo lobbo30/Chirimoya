@@ -5,43 +5,43 @@ using ChirimoyaLib;
 namespace Chirimoya.Tests.ANN
 {
     [TestClass]
-    public class UpdateBiasTests
+    public class BiasUpdater_UpdateTests
     {
         [TestMethod]
-        public void UpdateBias()
+        public void BiasUpdater_Update()
         {
             double bias = -0.0906;
             double computedOutput = 1.0;
             double expectedOutput = -1.0;
             double delta = computedOutput - expectedOutput;
             double alpha = 0.001;
-            double resultado = PerceptronManager.UpdateBias(bias, delta, alpha);
+            double resultado = BiasUpdater.Update(bias, delta, alpha);
 
             Assert.AreEqual(-0.0926, resultado);
         }
 
         [TestMethod]
-        public void UpdateBias_WithDifferentArguments()
+        public void BiasUpdater_Update_WithDifferentArguments()
         {
             double bias = -0.0123;
             double computedOutput = -1.0;
             double expectedOutput = 1.0;
             double delta = computedOutput - expectedOutput;
             double alpha = 0.0001;
-            double resultado = PerceptronManager.UpdateBias(bias, delta, alpha);
+            double resultado = BiasUpdater.Update(bias, delta, alpha);
 
             Assert.AreEqual(-0.0121, resultado);
         }
 
         [TestMethod]
-        public void UpdateBias_WhenDeltaIsZero()
+        public void BiasUpdater_Update_WhenDeltaIsZero()
         {
             double bias = -0.0906;
             double computedOutput = 1.0;
             double expectedOutput = 1.0;
             double delta = computedOutput - expectedOutput;
             double alpha = 0.001;
-            double resultado = PerceptronManager.UpdateBias(bias, delta, alpha);
+            double resultado = BiasUpdater.Update(bias, delta, alpha);
 
             Assert.AreEqual(-0.0906, resultado);
         }

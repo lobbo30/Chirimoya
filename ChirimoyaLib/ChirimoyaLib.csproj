@@ -53,7 +53,8 @@
     <Compile Include="AHP\AnalyticHierarchyProcess.cs" />
     <Compile Include="ANN\Perceptron\Encoder.cs" />
     <Compile Include="ANN\Perceptron\Initializer.cs" />
-    <Compile Include="ANN\Perceptron\TrainData.cs" />
+    <Compile Include="ANN\Perceptron\Training.cs" />
+    <Compile Include="ANN\Perceptron\Updaters.cs" />
     <Compile Include="Inventory\InventoryCalculator.cs" />
     <Compile Include="Common\Matrix.cs" />
     <Compile Include="AHP\MultifactorEvaluationProcess.cs" />

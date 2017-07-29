@@ -29,67 +29,33 @@ namespace ChirimoyaLib
             return -1.0;
         }
 
-        public static double[] UpdateWeights(double[] inputs, double[] weights, double delta, double alpha)
+        public TrainingResult Train(TrainingData[] trainingData, double[] weights, double bias, double alpha, int maxEpochs, Random random)
         {
-            if (delta == 0.0) // Para acelerar el algoritmo
-            {
-                return weights;
-            }
-            for (int i = 0; i < inputs.Length; i++)
-            {
-                double temp = alpha * delta * inputs[i];
-                weights[i] = UpdateWeight(inputs[i], weights[i], temp);
-            }
-            return weights;
-        }
+            TrainingResult trainingResult = new TrainingResult() { Weights = weights, Bias = bias };
 
-        public static double UpdateWeight(double input, double weight, double temp)
-        {
-            if (input < 0.0)
-            {
-                return weight + temp;
-            }
-            return weight - temp;
-        }
-
-        public TrainingResult Train(TrainData[] trainData, double[] weights, double bias, double alpha, int maxEpochs)
-        {
-            double[] newWeights = weights;
-            double newBias = bias;
-
-            int[] sequence = Initializer.InitializeSequence(trainData.Length);
-            Random random = new Random();
+            int[] sequence = SequenceInitializer.Initialize(trainingData.Length);
 
             for (int epoch = 0; epoch < maxEpochs; epoch++)
             {
-                Shuffler.ShuffleSequence(sequence, random);
-                for (int i = 0; i < trainData.Length; i++)
+                SequenceShuffler.Shuffle(sequence, random);
+                for (int i = 0; i < trainingData.Length; i++)
                 {
                     int index = sequence[i];
-                    double delta = GetDelta(trainData[index], newWeights, newBias);
+                    double delta = GetDelta(trainingData[index], trainingResult.Weights, trainingResult.Bias);
 
-                    newWeights = UpdateWeights(trainData[index].Inputs, newWeights, delta, alpha);
-                    newBias = UpdateBias(newBias, delta, alpha);
+                    trainingResult.Weights = WeightsUpdater.Update(trainingData[index].Inputs, trainingResult.Weights, delta, alpha);
+                    trainingResult.Bias = BiasUpdater.Update(trainingResult.Bias, delta, alpha);
                 }
             }
 
-            return new TrainingResult() { Weights = newWeights, Bias = newBias };
+            return trainingResult;
         }
 
-        private double GetDelta(TrainData trainData, double[] weights, double bias)
+        private double GetDelta(TrainingData trainingData, double[] weights, double bias)
         {
-            double computedOutput = ComputeOutput(trainData.Inputs, weights, bias);
-            double expectedOutput = trainData.Output;
+            double computedOutput = ComputeOutput(trainingData.Inputs, weights, bias);
+            double expectedOutput = trainingData.Output;
             return computedOutput - expectedOutput;
-        }
-
-        public static double UpdateBias(double bias, double delta, double alpha)
-        {
-            if (delta == 0.0)
-            {
-                return bias;
-            }
-            return bias - (alpha * delta);
         }
     }
 }

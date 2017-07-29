@@ -5,16 +5,11 @@ using ChirimoyaLib;
 namespace Chirimoya.Tests.ANN
 {
     [TestClass]
-    public class UpdateWeightsTests
+    public class WeightsUpdater_UpdateTests
     {
         [TestMethod]
-        public void UpdateWeights()
+        public void WeightsUpdater_Update()
         {
-            //Input[] inputs = new Input[]
-            //{
-            //    new Input() { XValue = 3.0, Weight = 0.0065 },
-            //    new Input() { XValue = 4.0, Weight = 0.0123 }
-            //};
             double[] inputs = new double[] { 3.0, 4.0 };
             double[] weights = new double[] { 0.0065, 0.0123 };
 
@@ -23,20 +18,15 @@ namespace Chirimoya.Tests.ANN
             double delta = computedOutput - expectedOutput;
             double alpha = 0.001;
 
-            double[] resultado = PerceptronManager.UpdateWeights(inputs, weights, delta, alpha);
+            double[] resultado = WeightsUpdater.Update(inputs, weights, delta, alpha);
 
             Assert.AreEqual(0.0005, Math.Round(resultado[0], 4));
             Assert.AreEqual(0.0043, Math.Round(resultado[1], 4));
         }
 
         [TestMethod]
-        public void UpdateWeights_WithDifferentArguments()
+        public void WeightsUpdater_Update_WithDifferentArguments()
         {
-            //Input[] inputs = new Input[]
-            //{
-            //    new Input() { XValue = 4.0, Weight = 0.0123 },
-            //    new Input() { XValue = 3.0, Weight = 0.0065 }
-            //};
             double[] inputs = new double[] { 4.0, 3.0 };
             double[] weights = new double[] { 0.0123, 0.0065 };
 
@@ -45,20 +35,15 @@ namespace Chirimoya.Tests.ANN
             double delta = computedOutput - expectedOutput;
             double alpha = 0.001;
 
-            double[] resultado = PerceptronManager.UpdateWeights(inputs, weights, delta, alpha);
+            double[] resultado = WeightsUpdater.Update(inputs, weights, delta, alpha);
 
             Assert.AreEqual(0.0043, Math.Round(resultado[0], 4));
             Assert.AreEqual(0.0005, Math.Round(resultado[1], 4));
         }
 
         [TestMethod]
-        public void UpdateWeights_WhenDeltaIsZero()
+        public void WeightsUpdater_Update_WhenDeltaIsZero()
         {
-            //Input[] inputs = new Input[]
-            //{
-            //    new Input() { XValue = 3.0, Weight = 0.0065 },
-            //    new Input() { XValue = 4.0, Weight = 0.0123 }
-            //};
             double[] inputs = new double[] { 3.0, 4.0 };
             double[] weights = new double[] { 0.0065, 0.0123 };
 
@@ -67,7 +52,7 @@ namespace Chirimoya.Tests.ANN
             double delta = computedOutput - expectedOutput;
             double alpha = 0.001;
 
-            double[] resultado = PerceptronManager.UpdateWeights(inputs, weights, delta, alpha);
+            double[] resultado = WeightsUpdater.Update(inputs, weights, delta, alpha);
 
             Assert.AreEqual(0.0065, resultado[0]);
             Assert.AreEqual(0.0123, resultado[1]);

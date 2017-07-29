@@ -2,11 +2,9 @@
 
 namespace ChirimoyaLib
 {
-    public class Initializer
+    public class ValueInitializer
     {
-        private Random random = new Random();
-
-        public double InitializeValue(double minValue, double maxValue)
+        public static double Initialize(double minValue, double maxValue, Random random)
         {
             if (minValue > maxValue)
             {
@@ -14,8 +12,11 @@ namespace ChirimoyaLib
             }
             return random.NextDouble() * (maxValue - minValue) + minValue;
         }
+    }
 
-        public static int[] InitializeSequence(int size)
+    public class SequenceInitializer
+    {
+        public static int[] Initialize(int size)
         {
             if (size <= 0)
             {

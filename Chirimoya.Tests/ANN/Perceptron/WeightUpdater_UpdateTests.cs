@@ -5,12 +5,11 @@ using ChirimoyaLib;
 namespace Chirimoya.Tests.ANN
 {
     [TestClass]
-    public class UpdateWeightTests
+    public class WeightUpdater_UpdateTests
     {
         [TestMethod]
-        public void UpdateWeight()
+        public void WeightUpdater_Update()
         {
-            //Input input = new Input() { XValue = 3.0, Weight = 0.0065 };
             double input = 3.0;
             double weight = 0.0065;
 
@@ -20,16 +19,15 @@ namespace Chirimoya.Tests.ANN
             double alpha = 0.001;
             double temp = alpha * delta * input;
 
-            double resultado = PerceptronManager.UpdateWeight(input, weight, temp);
+            double resultado = WeightUpdater.Update(input, weight, temp);
 
             Assert.AreEqual(0.0005, Math.Round(resultado, 4));
             Assert.IsTrue(resultado < weight);
         }
 
         [TestMethod]
-        public void UpdateWeight_WithDifferentArguments()
+        public void WeightUpdater_Update_WithDifferentArguments()
         {
-            //Input input = new Input() { XValue = 4.0, Weight = 0.0123 };
             double input = 4.0;
             double weight = 0.0123;
 
@@ -39,16 +37,15 @@ namespace Chirimoya.Tests.ANN
             double alpha = 0.0001;
             double temp = alpha * delta * input;
 
-            double resultado = PerceptronManager.UpdateWeight(input, weight, temp);
+            double resultado = WeightUpdater.Update(input, weight, temp);
 
             Assert.AreEqual(0.0115, resultado);
             Assert.IsTrue(resultado < weight);
         }
 
         [TestMethod]
-        public void UpdateWeight_WhenDeltaIsPositiveAndXValueIsNegative()
+        public void WeightUpdater_Update_WhenDeltaIsPositiveAndXValueIsNegative()
         {
-            //Input input = new Input() { XValue = -3.0, Weight = 0.0065 };
             double input = -3.0;
             double weight = 0.0065;
 
@@ -58,16 +55,15 @@ namespace Chirimoya.Tests.ANN
             double alpha = 0.001;
             double temp = alpha * delta * input;
 
-            double resultado = PerceptronManager.UpdateWeight(input, weight, temp);
+            double resultado = WeightUpdater.Update(input, weight, temp);
 
             Assert.AreEqual(0.0005, Math.Round(resultado, 4));
             Assert.IsTrue(resultado < weight);
         }
 
         [TestMethod]
-        public void UpdateWeight_WhenDeltaIsNegativeAndXValueIsPositive()
+        public void WeightUpdater_Update_WhenDeltaIsNegativeAndXValueIsPositive()
         {
-            //Input input = new Input() { XValue = 3.0, Weight = 0.0065 };
             double input = 3.0;
             double weight = 0.0065;
 
@@ -77,16 +73,15 @@ namespace Chirimoya.Tests.ANN
             double alpha = 0.001;
             double temp = alpha * delta * input;
 
-            double resultado = PerceptronManager.UpdateWeight(input, weight, temp);
+            double resultado = WeightUpdater.Update(input, weight, temp);
 
             Assert.AreEqual(0.0125, Math.Round(resultado, 4));
             Assert.IsTrue(resultado > weight);
         }
 
         [TestMethod]
-        public void UpdateWeight_WhenDeltaIsNegativeAndXValueIsNegative()
+        public void WeightUpdater_Update_WhenDeltaIsNegativeAndXValueIsNegative()
         {
-            //Input input = new Input() { XValue = -3.0, Weight = 0.0065 };
             double input = -3.0;
             double weight = 0.0065;
 
@@ -96,25 +91,11 @@ namespace Chirimoya.Tests.ANN
             double alpha = 0.001;
             double temp = alpha * delta * input;
 
-            double resultado = PerceptronManager.UpdateWeight(input, weight, temp);
+            double resultado = WeightUpdater.Update(input, weight, temp);
 
             Assert.AreEqual(0.0125, Math.Round(resultado, 4));
             Assert.IsTrue(resultado > weight);
         }
 
-        //[TestMethod]
-        //public void DecreaseWeight_WhenDeltaIsPositiveAndXValueIsNegative()
-        //{
-        //    Input input = new Input() { XValue = -3.0, Weight = 0.0065 };
-        //    double computedOutput = 1.0;
-        //    double expectedOutput = -1.0;
-        //    double delta = computedOutput - expectedOutput;
-        //    double alpha = 0.001;
-
-        //    double resultado = PerceptronManager.DecreaseWeight(input, delta, alpha);
-
-        //    Assert.AreEqual(0.0005, Math.Round(resultado, 4));
-        //    Assert.IsTrue(resultado < input.Weight);
-        //}
     }
 }
