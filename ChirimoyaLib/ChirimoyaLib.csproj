@@ -55,6 +55,8 @@
     <Compile Include="ANN\Perceptron\Initializer.cs" />
     <Compile Include="ANN\Perceptron\Training.cs" />
     <Compile Include="ANN\Perceptron\Updaters.cs" />
+    <Compile Include="ANN\FFANN\FFANNManager.cs" />
+    <Compile Include="ANN\SumCalculator.cs" />
     <Compile Include="Inventory\InventoryCalculator.cs" />
     <Compile Include="Common\Matrix.cs" />
     <Compile Include="AHP\MultifactorEvaluationProcess.cs" />

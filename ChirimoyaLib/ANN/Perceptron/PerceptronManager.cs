@@ -1,4 +1,5 @@
 ﻿using System;
+using ChirimoyaLib.ANN;
 
 namespace ChirimoyaLib
 {
@@ -6,17 +7,7 @@ namespace ChirimoyaLib
     {
         public double ComputeOutput(double[] inputs, double[] weights, double bias)
         {
-            if (inputs.Length != weights.Length)
-            {
-                throw new ArgumentException();
-            }
-
-            double suma = 0.0;
-            for (int i = 0; i < inputs.Length; i++)
-            {
-                suma += inputs[i] * weights[i];
-            }
-            suma += bias;
+            double suma = SumCalculator.GetSum(inputs, weights, bias);
             return Activation(suma);
         }
 

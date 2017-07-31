@@ -53,20 +53,20 @@ namespace ChirimoyaLib
 
     public class MatrixMath
     {
-        public static double[] GetRow(ref double[,] matrix, int rowNumber)
+        public static double[] GetRow(double[,] matrix, int rowNumber)
         {
-            double[] row = new double[3];
-            for (int n = 0; n < 3; n++)
+            double[] row = new double[matrix.GetLength(1)];
+            for (int n = 0; n < matrix.GetLength(1); n++)
             {
                 row[n] = matrix[rowNumber, n];
             }
             return row;
         }
 
-        public static double[] GetColumn(ref double[,] matrix, int columnNumber)
+        public static double[] GetColumn(double[,] matrix, int columnNumber)
         {
-            double[] column = new double[3];
-            for (int m = 0; m < 3; m++)
+            double[] column = new double[matrix.GetLength(0)];
+            for (int m = 0; m < matrix.GetLength(0); m++)
             {
                 column[m] = matrix[m, columnNumber];
             }
@@ -79,7 +79,7 @@ namespace ChirimoyaLib
             double[] matrixColumnTotals = new double[3];
             for (int n = 0; n < 3; n++)
             {
-                double[] column = GetColumn(ref matrix, n);
+                double[] column = GetColumn(matrix, n);
                 matrixColumnTotals[n] = VectorMath.Sum(ref column);
             }
             return matrixColumnTotals;
@@ -126,7 +126,7 @@ namespace ChirimoyaLib
             double[] rowAverages = new double[3];
             for (int n = 0; n < 3; n++)
             {
-                double[] row = GetRow(ref normalizedMatrix, n);
+                double[] row = GetRow(normalizedMatrix, n);
                 rowAverages[n] = VectorMath.Avg(ref row);
             }
             return rowAverages;

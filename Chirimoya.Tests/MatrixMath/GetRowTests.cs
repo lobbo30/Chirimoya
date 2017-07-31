@@ -17,7 +17,7 @@ namespace Chirimoya.Tests
                 { 2.0, 8.0, 7.0 }
             };
 
-            double[] resultado = MatrixMath.GetRow(ref matrix, 0);
+            double[] resultado = MatrixMath.GetRow(matrix, 0);
 
             Assert.AreEqual(3.0, resultado[0]);
             Assert.AreEqual(4.0, resultado[1]);
@@ -34,7 +34,7 @@ namespace Chirimoya.Tests
                 { 2.0, 8.0, 7.0 }
             };
 
-            double[] resultado = MatrixMath.GetRow(ref matrix, 2);
+            double[] resultado = MatrixMath.GetRow(matrix, 2);
 
             Assert.AreEqual(2.0, resultado[0]);
             Assert.AreEqual(8.0, resultado[1]);
