@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ChirimoyaLib;
 
-namespace Chirimoya.Tests.ANN
+namespace Chirimoya.Tests.ANN.Perceptron
 {
     [TestClass]
     public class TrainTests

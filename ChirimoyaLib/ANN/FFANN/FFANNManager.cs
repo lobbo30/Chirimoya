@@ -27,6 +27,13 @@ namespace ChirimoyaLib
             return Activision(oSums);
         }
 
+        public double[] Compute(double[] inputs, double[,] ihWeights, double[] hBias, double[,] hoWeights, double[] oBias)
+        {
+            double[] hOutputs = ComputeHiddenOutputs(inputs, ihWeights, hBias);
+            double[] outputs = ComputeOutputs(hOutputs, hoWeights, oBias);
+            return outputs;
+        }
+
         public double[] ComputeOutputSums(double[] hOutputs, double[,] hoWeights, double[] oBias)
         {
             double[] oSums = new double[hoWeights.GetLength(1)];
@@ -52,7 +59,5 @@ namespace ChirimoyaLib
             }
             return outputs;
         }
-
-     
     }
 }
