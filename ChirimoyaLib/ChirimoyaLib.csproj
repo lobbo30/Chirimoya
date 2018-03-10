@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="AHP\Alternative.cs" />
     <Compile Include="AHP\AnalyticHierarchyProcess.cs" />
+    <Compile Include="ANN\ActivationFunctions.cs" />
     <Compile Include="ANN\Perceptron\Encoder.cs" />
     <Compile Include="ANN\Perceptron\Initializer.cs" />
     <Compile Include="ANN\Perceptron\Models.cs" />

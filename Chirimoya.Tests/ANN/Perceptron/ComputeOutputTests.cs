@@ -15,8 +15,7 @@ namespace Chirimoya.Tests.ANN
                         
             double bias = -0.0906;
 
-            PerceptronManager perceptronManager = new PerceptronManager();
-            double resultado = perceptronManager.ComputeOutput(inputs, new Node() { Weights = weights, Bias = bias });
+            double resultado = OutputCalculator.ComputeOutput(inputs, new Node() { Weights = weights, Bias = bias });
 
             Assert.AreEqual(-1.0, resultado);
         }
@@ -29,8 +28,7 @@ namespace Chirimoya.Tests.ANN
 
             double bias = -0.0019;
 
-            PerceptronManager perceptronManager = new PerceptronManager();
-            double resultado = perceptronManager.ComputeOutput(inputs, new Node() { Weights = weights, Bias = bias });
+            double resultado = OutputCalculator.ComputeOutput(inputs, new Node() { Weights = weights, Bias = bias });
 
             Assert.AreEqual(1.0, resultado);
         }
@@ -44,8 +42,7 @@ namespace Chirimoya.Tests.ANN
 
             double bias = -0.0906;
 
-            PerceptronManager perceptronManager = new PerceptronManager();
-            double resultado = perceptronManager.ComputeOutput(inputs, new Node() { Weights = weights, Bias = bias });
+            double resultado = OutputCalculator.ComputeOutput(inputs, new Node() { Weights = weights, Bias = bias });
         }
     }
 }

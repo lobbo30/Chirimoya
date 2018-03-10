@@ -6,10 +6,10 @@ using ChirimoyaLib;
 namespace Chirimoya.Tests.ANN.Perceptron
 {
     [TestClass]
-    public class UnitTest1
+    public class DummyEncoding2Tests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void DummyEncoding2()
         {
             BitArray[] resultado = Encoder.DummyEncoding(3);
 

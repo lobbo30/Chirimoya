@@ -68,7 +68,12 @@
     <Compile Include="ANN\FFANN\ComputeTests.cs" />
     <Compile Include="ANN\Perceptron\DummyEncodingTests.cs" />
     <Compile Include="ANN\Perceptron\EffectsEncodingTests.cs" />
-    <Compile Include="ANN\Perceptron\UnitTest1.cs" />
+    <Compile Include="ANN\Perceptron\DummyEncoding2Tests.cs" />
+    <Compile Include="ANN\Perceptron\EscalonadaTests.cs" />
+    <Compile Include="ANN\Perceptron\HyperbolicTanTests.cs" />
+    <Compile Include="ANN\Perceptron\SoftmaxNaiveTests.cs" />
+    <Compile Include="ANN\Perceptron\LogSigmodialTests.cs" />
+    <Compile Include="ANN\Perceptron\SoftmaxTests.cs" />
     <Compile Include="ANN\Perceptron\ValueInitializer_InitializeTests.cs" />
     <Compile Include="ANN\Perceptron\ComputeOutputTests.cs" />
     <Compile Include="ANN\Perceptron\TrainTests.cs" />

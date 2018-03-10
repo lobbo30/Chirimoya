@@ -1,25 +1,20 @@
 ﻿using System;
 using ChirimoyaLib.ANN;
+using System.Linq;
 
 namespace ChirimoyaLib
 {
-    public class PerceptronManager
+    public static class OutputCalculator
     {
-        public double ComputeOutput(double[] inputs, Node node)
+        public static double ComputeOutput(double[] inputs, Node node)
         {
             double suma = SumCalculator.GetSum(inputs, node);
-            return Activation(suma);
+            return ActivationFunctions.Escalonada(suma);
         }
-
-        private static double Activation(double suma)
-        {
-            if (suma >= 0.0)
-            {
-                return 1.0;
-            }
-            return -1.0;
-        }
-
+    }
+    
+    public class PerceptronManager
+    {
         public Node Train(Perceptron perceptron, Random random)
         {
             int[] sequence = SequenceInitializer.Initialize(perceptron.TrainingData.Length);
@@ -30,16 +25,16 @@ namespace ChirimoyaLib
                 for (int i = 0; i < perceptron.TrainingData.Length; i++)
                 {
                     int index = sequence[i];
-                    double computedOutput = ComputeOutput(perceptron.TrainingData[index].Inputs, perceptron.Node);
+                    double computedOutput = OutputCalculator.ComputeOutput(perceptron.TrainingData[index].Inputs, perceptron.Node);
                     double delta = computedOutput - perceptron.TrainingData[index].Output;
 
-                    Update(perceptron, index, delta);
+                    UpdateNode(perceptron, index, delta);
                 }
             }
             return perceptron.Node;
         }
 
-        private static void Update(Perceptron perceptron, int index, double delta)
+        private static void UpdateNode(Perceptron perceptron, int index, double delta)
         {
             perceptron.Node.Weights = WeightsUpdater.Update(perceptron.TrainingData[index].Inputs, perceptron.Node.Weights, delta, perceptron.LearningRate);
             perceptron.Node.Bias = BiasUpdater.Update(perceptron.Node.Bias, delta, perceptron.LearningRate);

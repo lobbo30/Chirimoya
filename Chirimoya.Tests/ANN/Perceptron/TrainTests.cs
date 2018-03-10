@@ -46,9 +46,9 @@ namespace Chirimoya.Tests.ANN.PerceptronNS
             }, random);
 
             double[] newInputs = new double[] { 7.0, 6.0 };
-            double resultado = perceptronManager.ComputeOutput(newInputs, trainingResult);
+            double resultado = OutputCalculator.ComputeOutput(newInputs, trainingResult);
             double[] newInputs2 = new double[] { 3.0, 2.5 };
-            double resultado2 = perceptronManager.ComputeOutput(newInputs2, trainingResult);
+            double resultado2 = OutputCalculator.ComputeOutput(newInputs2, trainingResult);
 
             Assert.AreEqual(1.0, resultado);
             Assert.AreEqual(-1.0, resultado2);
