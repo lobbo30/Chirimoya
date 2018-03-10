@@ -62,7 +62,7 @@
     <Compile Include="AHP\MultifactorEvaluationProcess.cs" />
     <Compile Include="ANN\Perceptron\PerceptronManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ANN\Perceptron\Shuffler.cs" />
+    <Compile Include="ANN\Perceptron\SequenceShuffler.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

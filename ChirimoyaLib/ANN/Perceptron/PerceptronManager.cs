@@ -30,7 +30,8 @@ namespace ChirimoyaLib
                 for (int i = 0; i < perceptron.TrainingData.Length; i++)
                 {
                     int index = sequence[i];
-                    double delta = GetDelta(perceptron.TrainingData[index], perceptron.Node);
+                    double computedOutput = ComputeOutput(perceptron.TrainingData[index].Inputs, perceptron.Node);
+                    double delta = computedOutput - perceptron.TrainingData[index].Output;
 
                     Update(perceptron, index, delta);
                 }
@@ -44,11 +45,16 @@ namespace ChirimoyaLib
             perceptron.Node.Bias = BiasUpdater.Update(perceptron.Node.Bias, delta, perceptron.LearningRate);
         }
 
-        private double GetDelta(TrainingData trainingData, Node node)
-        {
-            double computedOutput = ComputeOutput(trainingData.Inputs, node);
-            double expectedOutput = trainingData.Output;
-            return computedOutput - expectedOutput;
-        }
+        //private double GetDelta(TrainingData trainingData, Node node)
+        //{
+        //    double computedOutput = ComputeOutput(trainingData.Inputs, node);
+        //    double expectedOutput = trainingData.Output;
+        //    return computedOutput - expectedOutput;
+        //}
+
+        //private double GetDelta(double computedValue, double expectedValue)
+        //{
+        //    return computedValue - expectedValue;
+        //}
     }
 }
