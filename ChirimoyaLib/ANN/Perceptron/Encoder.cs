@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace ChirimoyaLib
 {
@@ -47,6 +48,17 @@ namespace ChirimoyaLib
                 throw new ArgumentException();
             }
             return new double[] { 1.0, -1.0 };
+        }
+
+        public static BitArray[] DummyEncoding(int size)
+        {
+            BitArray[] input = new BitArray[size];
+            for (int i = 0; i < size; i++)
+            {
+                input[i] = new BitArray(size, false);
+                input[i][i] = true;
+            }
+            return input;
         }
     }
 }

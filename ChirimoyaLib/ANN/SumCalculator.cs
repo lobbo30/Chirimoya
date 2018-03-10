@@ -7,9 +7,9 @@ namespace ChirimoyaLib.ANN
 {
     public class SumCalculator
     {
-        public static double GetSum(double[] inputs, double[] weights, double bias)
+        public static double GetSum(double[] inputs, TrainingResult trainingResult)
         {
-            if (inputs.Length != weights.Length)
+            if (inputs.Length != trainingResult.Weights.Length)
             {
                 throw new ArgumentException();
             }
@@ -17,9 +17,9 @@ namespace ChirimoyaLib.ANN
             double suma = 0.0;
             for (int i = 0; i < inputs.Length; i++)
             {
-                suma += inputs[i] * weights[i];
+                suma += inputs[i] * trainingResult.Weights[i];
             }
-            suma += bias;
+            suma += trainingResult.Bias;
             return suma;
         }
     }

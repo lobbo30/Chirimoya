@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ChirimoyaLib;
 
-namespace Chirimoya.Tests.ANN.Perceptron
+namespace Chirimoya.Tests.ANN.PerceptronNS
 {
     [TestClass]
     public class TrainTests
@@ -22,14 +22,14 @@ namespace Chirimoya.Tests.ANN.Perceptron
                 new TrainingData() { Inputs = new double[] { 6.0, 6.0 }, Output = 1.0 }
             };
 
-            double alpha = 0.001;
-            int maxEpochs = 1000;
+            const double alpha = 0.001;
+            const int maxEpochs = 1000;
 
-            double minValue = -0.01;
-            double maxValue = 0.01;
+            const double minValue = -0.01;
+            const double maxValue = 0.01;
 
             Random random = new Random();
-            double[] weights = new double[] 
+            double[] weights = new double[]
             {
                 ValueInitializer.Initialize(minValue, maxValue, random),
                 ValueInitializer.Initialize(minValue, maxValue, random)
@@ -37,12 +37,18 @@ namespace Chirimoya.Tests.ANN.Perceptron
             double bias = ValueInitializer.Initialize(minValue, maxValue, random);
 
             PerceptronManager perceptronManager = new PerceptronManager();
-            TrainingResult trainingResult = perceptronManager.Train(trainData, weights, bias, alpha, maxEpochs, random);
+            TrainingResult trainingResult = perceptronManager.Train(new ChirimoyaLib.Perceptron()
+            {
+                TrainingData = trainData,
+                TrainingResult = new TrainingResult() { Weights = weights, Bias = bias },
+                LearningRate = alpha,
+                MaxEpochs = maxEpochs
+            }, random);
 
             double[] newInputs = new double[] { 7.0, 6.0 };
-            double resultado = perceptronManager.ComputeOutput(newInputs, trainingResult.Weights, trainingResult.Bias);
+            double resultado = perceptronManager.ComputeOutput(newInputs, trainingResult);
             double[] newInputs2 = new double[] { 3.0, 2.5 };
-            double resultado2 = perceptronManager.ComputeOutput(newInputs2, trainingResult.Weights, trainingResult.Bias);
+            double resultado2 = perceptronManager.ComputeOutput(newInputs2, trainingResult);
 
             Assert.AreEqual(1.0, resultado);
             Assert.AreEqual(-1.0, resultado2);

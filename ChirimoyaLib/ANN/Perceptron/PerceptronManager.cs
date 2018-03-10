@@ -3,11 +3,19 @@ using ChirimoyaLib.ANN;
 
 namespace ChirimoyaLib
 {
+    public class Perceptron
+    {
+        public TrainingData[] TrainingData { get; set; }
+        public TrainingResult TrainingResult { get; set; }
+        public double LearningRate { get; set; }
+        public int MaxEpochs { get; set; }
+    }
+
     public class PerceptronManager
     {
-        public double ComputeOutput(double[] inputs, double[] weights, double bias)
+        public double ComputeOutput(double[] inputs, TrainingResult trainingResult)
         {
-            double suma = SumCalculator.GetSum(inputs, weights, bias);
+            double suma = SumCalculator.GetSum(inputs, trainingResult);
             return Activation(suma);
         }
 
@@ -20,31 +28,33 @@ namespace ChirimoyaLib
             return -1.0;
         }
 
-        public TrainingResult Train(TrainingData[] trainingData, double[] weights, double bias, double alpha, int maxEpochs, Random random)
+        public TrainingResult Train(Perceptron perceptron, Random random)
         {
-            TrainingResult trainingResult = new TrainingResult() { Weights = weights, Bias = bias };
+            int[] sequence = SequenceInitializer.Initialize(perceptron.TrainingData.Length);
 
-            int[] sequence = SequenceInitializer.Initialize(trainingData.Length);
-
-            for (int epoch = 0; epoch < maxEpochs; epoch++)
+            for (int epoch = 0; epoch < perceptron.MaxEpochs; epoch++)
             {
-                SequenceShuffler.Shuffle(sequence, random);
-                for (int i = 0; i < trainingData.Length; i++)
+                sequence.Shuffle(random);
+                for (int i = 0; i < perceptron.TrainingData.Length; i++)
                 {
                     int index = sequence[i];
-                    double delta = GetDelta(trainingData[index], trainingResult.Weights, trainingResult.Bias);
+                    double delta = GetDelta(perceptron.TrainingData[index], perceptron.TrainingResult);
 
-                    trainingResult.Weights = WeightsUpdater.Update(trainingData[index].Inputs, trainingResult.Weights, delta, alpha);
-                    trainingResult.Bias = BiasUpdater.Update(trainingResult.Bias, delta, alpha);
+                    Update(perceptron, index, delta);
                 }
             }
-
-            return trainingResult;
+            return perceptron.TrainingResult;
         }
 
-        private double GetDelta(TrainingData trainingData, double[] weights, double bias)
+        private static void Update(Perceptron perceptron, int index, double delta)
         {
-            double computedOutput = ComputeOutput(trainingData.Inputs, weights, bias);
+            perceptron.TrainingResult.Weights = WeightsUpdater.Update(perceptron.TrainingData[index].Inputs, perceptron.TrainingResult.Weights, delta, perceptron.LearningRate);
+            perceptron.TrainingResult.Bias = BiasUpdater.Update(perceptron.TrainingResult.Bias, delta, perceptron.LearningRate);
+        }
+
+        private double GetDelta(TrainingData trainingData, TrainingResult trainingResult)
+        {
+            double computedOutput = ComputeOutput(trainingData.Inputs, trainingResult);
             double expectedOutput = trainingData.Output;
             return computedOutput - expectedOutput;
         }

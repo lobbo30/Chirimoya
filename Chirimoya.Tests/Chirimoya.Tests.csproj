@@ -68,6 +68,7 @@
     <Compile Include="ANN\FFANN\ComputeTests.cs" />
     <Compile Include="ANN\Perceptron\DummyEncodingTests.cs" />
     <Compile Include="ANN\Perceptron\EffectsEncodingTests.cs" />
+    <Compile Include="ANN\Perceptron\UnitTest1.cs" />
     <Compile Include="ANN\Perceptron\ValueInitializer_InitializeTests.cs" />
     <Compile Include="ANN\Perceptron\ComputeOutputTests.cs" />
     <Compile Include="ANN\Perceptron\TrainTests.cs" />
