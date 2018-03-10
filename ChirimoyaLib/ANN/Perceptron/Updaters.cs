@@ -4,7 +4,7 @@ namespace ChirimoyaLib
 {
     public class WeightsUpdater
     {
-        public static double[] Update(double[] inputs, double[] weights, double delta, double alpha)
+        public static double[] Update(double[] inputs, double[] weights, double delta, double learningRate)
         {
             if (delta == 0.0) // Para acelerar el algoritmo
             {
@@ -12,7 +12,7 @@ namespace ChirimoyaLib
             }
             for (int i = 0; i < inputs.Length; i++)
             {
-                double adjustment = alpha * delta * inputs[i];
+                double adjustment = learningRate * delta * inputs[i];
                 weights[i] = WeightUpdater.Update(inputs[i], weights[i], adjustment);
             }
             return weights;
@@ -33,13 +33,13 @@ namespace ChirimoyaLib
 
     public class BiasUpdater
     {
-        public static double Update(double bias, double delta, double alpha)
+        public static double Update(double bias, double delta, double learningRate)
         {
             if (delta == 0.0)
             {
                 return bias;
             }
-            return bias - (alpha * delta);
+            return bias - (learningRate * delta);
         }
     }
 }

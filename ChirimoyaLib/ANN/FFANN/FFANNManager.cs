@@ -7,7 +7,7 @@ namespace ChirimoyaLib
     {
         public double ComputeHiddenOutput(double[] inputs, double[] weights, double bias)
         {
-            double suma = SumCalculator.GetSum(inputs, new TrainingResult() { Weights = weights, Bias = bias });
+            double suma = SumCalculator.GetSum(inputs, new Node() { Weights = weights, Bias = bias });
             return Math.Tanh(suma); // método activación
         }
 
@@ -39,7 +39,7 @@ namespace ChirimoyaLib
             double[] oSums = new double[hoWeights.GetLength(1)];
             for (int i = 0; i < hoWeights.GetLength(1); i++)
             {
-                oSums[i] = SumCalculator.GetSum(hOutputs, new TrainingResult() { Weights = MatrixMath.GetColumn(hoWeights, i), Bias = oBias[i] });
+                oSums[i] = SumCalculator.GetSum(hOutputs, new Node() { Weights = MatrixMath.GetColumn(hoWeights, i), Bias = oBias[i] });
             }
             return oSums;
         }

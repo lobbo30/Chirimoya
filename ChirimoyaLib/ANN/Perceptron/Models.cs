@@ -8,9 +8,17 @@ namespace ChirimoyaLib
         public double Output { get; set; }
     }
 
-    public class TrainingResult
+    public class Node
     {
         public double[] Weights { get; set; }
         public double Bias { get; set; }
+    }
+
+    public class Perceptron
+    {
+        public TrainingData[] TrainingData { get; set; }
+        public Node Node { get; set; }
+        public double LearningRate { get; set; }
+        public int MaxEpochs { get; set; }
     }
 }

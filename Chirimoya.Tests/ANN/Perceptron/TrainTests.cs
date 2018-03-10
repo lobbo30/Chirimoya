@@ -37,10 +37,10 @@ namespace Chirimoya.Tests.ANN.PerceptronNS
             double bias = ValueInitializer.Initialize(minValue, maxValue, random);
 
             PerceptronManager perceptronManager = new PerceptronManager();
-            TrainingResult trainingResult = perceptronManager.Train(new ChirimoyaLib.Perceptron()
+            Node trainingResult = perceptronManager.Train(new ChirimoyaLib.Perceptron()
             {
                 TrainingData = trainData,
-                TrainingResult = new TrainingResult() { Weights = weights, Bias = bias },
+                Node = new Node() { Weights = weights, Bias = bias },
                 LearningRate = alpha,
                 MaxEpochs = maxEpochs
             }, random);

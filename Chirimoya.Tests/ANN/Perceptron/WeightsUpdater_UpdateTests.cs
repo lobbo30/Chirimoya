@@ -18,7 +18,7 @@ namespace Chirimoya.Tests.ANN
             double delta = computedOutput - expectedOutput;
             double alpha = 0.001;
 
-            double[] resultado = WeightsUpdater.Update(inputs, weights, delta, alpha);
+            var resultado = WeightsUpdater.Update(inputs, weights, delta, alpha);
 
             Assert.AreEqual(0.0005, Math.Round(resultado[0], 4));
             Assert.AreEqual(0.0043, Math.Round(resultado[1], 4));
@@ -35,7 +35,7 @@ namespace Chirimoya.Tests.ANN
             double delta = computedOutput - expectedOutput;
             double alpha = 0.001;
 
-            double[] resultado = WeightsUpdater.Update(inputs, weights, delta, alpha);
+            var resultado = WeightsUpdater.Update(inputs, weights, delta, alpha);
 
             Assert.AreEqual(0.0043, Math.Round(resultado[0], 4));
             Assert.AreEqual(0.0005, Math.Round(resultado[1], 4));
@@ -52,7 +52,7 @@ namespace Chirimoya.Tests.ANN
             double delta = computedOutput - expectedOutput;
             double alpha = 0.001;
 
-            double[] resultado = WeightsUpdater.Update(inputs, weights, delta, alpha);
+            var resultado = WeightsUpdater.Update(inputs, weights, delta, alpha);
 
             Assert.AreEqual(0.0065, resultado[0]);
             Assert.AreEqual(0.0123, resultado[1]);

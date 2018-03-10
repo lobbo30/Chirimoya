@@ -53,7 +53,7 @@
     <Compile Include="AHP\AnalyticHierarchyProcess.cs" />
     <Compile Include="ANN\Perceptron\Encoder.cs" />
     <Compile Include="ANN\Perceptron\Initializer.cs" />
-    <Compile Include="ANN\Perceptron\Training.cs" />
+    <Compile Include="ANN\Perceptron\Models.cs" />
     <Compile Include="ANN\Perceptron\Updaters.cs" />
     <Compile Include="ANN\FFANN\FFANNManager.cs" />
     <Compile Include="ANN\SumCalculator.cs" />
