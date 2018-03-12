@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ChirimoyaLib;
 using ChirimoyaLib.ANN.FeedForward.HiddenLayer;
+using ChirimoyaLib.ANN.Models;
 
 namespace Chirimoya.Tests.ANN.FeedForward
 {

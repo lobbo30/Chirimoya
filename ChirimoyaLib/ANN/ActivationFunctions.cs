@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ChirimoyaLib
+namespace ChirimoyaLib.ANN
 {
     public static class ActivationFunctions
     {

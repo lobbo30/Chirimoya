@@ -6,7 +6,10 @@ namespace ChirimoyaLib
     {
         public static void Shuffle(this int[] sequence, Random random)
         {
-            //Random random = new Random();
+            if (sequence == null || random == null)
+            {
+                throw new ArgumentNullException();
+            }
             for (int i = 0; i < sequence.Length; i++)
             {
                 int randomIndex = random.Next(i, sequence.Length); // Es correcto, el límite superior es exclusivo.

@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ChirimoyaLib;
+using ChirimoyaLib.ANN;
 
 namespace Chirimoya.Tests.ANN.Perceptron
 {

@@ -10,37 +10,26 @@ namespace Chirimoya.Tests.ANN
         [TestMethod]
         public void SequenceInitializer_Initialize()
         {
-            int size = 4;
-            int[] resultado = SequenceInitializer.Initialize(size);
+            int[] sequence = new int[4];
+            SequenceInitializer.SequenceInitialize(sequence);
 
-            Assert.AreEqual(0, resultado[0]);
-            Assert.AreEqual(1, resultado[1]);
-            Assert.AreEqual(2, resultado[2]);
-            Assert.AreEqual(3, resultado[3]);
+            CollectionAssert.AreEqual(new int[] { 0, 1, 2, 3 }, sequence);
         }
 
         [TestMethod]
         public void SequenceInitializer_Initialize_WithDifferentSize()
         {
-            int size = 8;
-            int[] resultado = SequenceInitializer.Initialize(size);
+            int[] sequence = new int[8];
+            SequenceInitializer.SequenceInitialize(sequence);
 
-            Assert.AreEqual(0, resultado[0]);
-            Assert.AreEqual(1, resultado[1]);
-            Assert.AreEqual(2, resultado[2]);
-            Assert.AreEqual(3, resultado[3]);
-            Assert.AreEqual(4, resultado[4]);
-            Assert.AreEqual(5, resultado[5]);
-            Assert.AreEqual(6, resultado[6]);
-            Assert.AreEqual(7, resultado[7]);
+            CollectionAssert.AreEqual(new int[] { 0, 1, 2, 3, 4, 5, 6, 7 }, sequence);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void SequenceInitializer_Initialize_WhenSizeIsZeroOrNegative()
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void SequenceInitializer_Initialize_WhenArgumentIsNull()
         {
-            int size = -3;
-            int[] resultado = SequenceInitializer.Initialize(size);
+            SequenceInitializer.SequenceInitialize(null);
         }
     }
 }

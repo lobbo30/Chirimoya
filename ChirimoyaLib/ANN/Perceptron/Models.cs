@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ChirimoyaLib
+namespace ChirimoyaLib.ANN.Models
 {
     public class TrainingData
     {
@@ -14,7 +14,12 @@ namespace ChirimoyaLib
         public double Bias { get; set; }
     }
 
-    public class Perceptron
+    public abstract class ANN
+    {
+
+    }
+
+    public class Perceptron : ANN
     {
         public TrainingData[] TrainingData { get; set; }
         public Node Node { get; set; }

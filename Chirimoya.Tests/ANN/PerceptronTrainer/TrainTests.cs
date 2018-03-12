@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ChirimoyaLib;
 using ChirimoyaLib.ANN.Perceptron;
+using ChirimoyaLib.ANN.Models;
 
 namespace Chirimoya.Tests.ANN.PerceptronNS
 {
@@ -30,18 +31,21 @@ namespace Chirimoya.Tests.ANN.PerceptronNS
             const double maxValue = 0.01;
 
             Random random = new Random();
-            double[] weights = new double[]
-            {
-                ValueInitializer.Initialize(minValue, maxValue, random),
-                ValueInitializer.Initialize(minValue, maxValue, random)
-            };
-            double bias = ValueInitializer.Initialize(minValue, maxValue, random);
+            //double[] weights = new double[]
+            //{
+            //    ValueInitializer.Initialize(minValue, maxValue, random),
+            //    ValueInitializer.Initialize(minValue, maxValue, random)
+            //};
+            //double bias = ValueInitializer.Initialize(minValue, maxValue, random);
+            Node node = new Node() { Weights = new double[trainData[0].Inputs.Length], Bias = 0.0 };
+            //NodeInitializer.RandomInitialize(node, minValue, maxValue, random);
+            node.RandomInitialize(minValue, maxValue, random);
 
             PerceptronTrainer perceptronManager = new PerceptronTrainer();
-            Node trainingResult = perceptronManager.Train(new ChirimoyaLib.Perceptron()
+            Node trainingResult = perceptronManager.Train(new ChirimoyaLib.ANN.Models.Perceptron()
             {
                 TrainingData = trainData,
-                Node = new Node() { Weights = weights, Bias = bias },
+                Node = node,
                 LearningRate = alpha,
                 MaxEpochs = maxEpochs
             }, random);

@@ -1,5 +1,6 @@
 ﻿using System;
 using ChirimoyaLib.ANN.Perceptron;
+using ChirimoyaLib.ANN.Models;
 
 namespace ChirimoyaLib
 {
@@ -7,7 +8,8 @@ namespace ChirimoyaLib
     {
         public Node Train(Perceptron perceptron, Random random)
         {
-            int[] sequence = SequenceInitializer.Initialize(perceptron.TrainingData.Length);
+            int[] sequence = new int[perceptron.TrainingData.Length];
+            sequence.SequenceInitialize();
 
             for (int epoch = 0; epoch < perceptron.MaxEpochs; epoch++)
             {
@@ -18,28 +20,10 @@ namespace ChirimoyaLib
                     double computedOutput = OutputCalculator.ComputeOutput(perceptron.TrainingData[index].Inputs, perceptron.Node);
                     double delta = computedOutput - perceptron.TrainingData[index].Output;
 
-                    UpdateNode(perceptron, index, delta);
+                    NodeUpdater.Update(perceptron, index, delta);
                 }
             }
             return perceptron.Node;
         }
-
-        private static void UpdateNode(Perceptron perceptron, int index, double delta)
-        {
-            perceptron.Node.Weights = WeightsUpdater.Update(perceptron.TrainingData[index].Inputs, perceptron.Node.Weights, delta, perceptron.LearningRate);
-            perceptron.Node.Bias = BiasUpdater.Update(perceptron.Node.Bias, delta, perceptron.LearningRate);
-        }
-
-        //private double GetDelta(TrainingData trainingData, Node node)
-        //{
-        //    double computedOutput = ComputeOutput(trainingData.Inputs, node);
-        //    double expectedOutput = trainingData.Output;
-        //    return computedOutput - expectedOutput;
-        //}
-
-        //private double GetDelta(double computedValue, double expectedValue)
-        //{
-        //    return computedValue - expectedValue;
-        //}
     }
 }

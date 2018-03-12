@@ -10,7 +10,8 @@ namespace Chirimoya.Tests.ANN
         [TestMethod]
         public void SequenceShuffler_Shuffle()
         {
-            int[] sequence = SequenceInitializer.Initialize(4);
+            int[] sequence = new int[4];
+            SequenceInitializer.SequenceInitialize(sequence);
             SequenceShuffler.Shuffle(sequence, new Random());
 
             CollectionAssert.AllItemsAreUnique(sequence);
@@ -19,7 +20,8 @@ namespace Chirimoya.Tests.ANN
         [TestMethod]
         public void SequenceShuffler_Shuffle_WithDifferentSize()
         {
-            int[] sequence = SequenceInitializer.Initialize(8);
+            int[] sequence = new int[8];
+            SequenceInitializer.SequenceInitialize(sequence);
             SequenceShuffler.Shuffle(sequence, new Random());
 
             CollectionAssert.AllItemsAreUnique(sequence);
@@ -28,10 +30,18 @@ namespace Chirimoya.Tests.ANN
         [TestMethod]
         public void SequenceShuffler_Shuffle_WithDifferentBigSize()
         {
-            int[] sequence = SequenceInitializer.Initialize(1000);
+            int[] sequence = new int[1000];
+            SequenceInitializer.SequenceInitialize(sequence);
             SequenceShuffler.Shuffle(sequence, new Random());
 
             CollectionAssert.AllItemsAreUnique(sequence);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Shuffe_WhenArgumentsAreNull()
+        {
+            SequenceShuffler.Shuffle(null, null);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Chirimoya.Tests.ANN
         [TestMethod]
         public void ValueInitializer_Initialize()
         {
-            double resultado = ValueInitializer.Initialize(-0.01, 0.01, new Random());
+            double resultado = ValueInitializer.RandomInitialize(-0.01, 0.01, new Random());
 
             Assert.IsTrue(resultado >= -0.01 && resultado <= 0.01);
         }
@@ -18,7 +18,7 @@ namespace Chirimoya.Tests.ANN
         [TestMethod]
         public void ValueInitializer_Initialize_WithDifferentArguments()
         {
-            double resultado = ValueInitializer.Initialize(1.0, 10.0, new Random());
+            double resultado = ValueInitializer.RandomInitialize(1.0, 10.0, new Random());
 
             Assert.IsTrue(resultado >= 1.0 && resultado <= 10.0);
         }
@@ -27,15 +27,15 @@ namespace Chirimoya.Tests.ANN
         [ExpectedException(typeof(ArgumentException))]
         public void ValueInitializer_Initialize_WhenMinValueIsGreaterThenMaxValue()
         {
-            double resultado = ValueInitializer.Initialize(0.01, -0.01, new Random());
+            double resultado = ValueInitializer.RandomInitialize(0.01, -0.01, new Random());
         }
 
         [TestMethod]
         public void ValueInitializer_Initialize_WhenInitializeValueIsCalledInmediately()
         {
             Random random = new Random();
-            double resultado = ValueInitializer.Initialize(-0.01, 0.01, random);
-            double resultado2 = ValueInitializer.Initialize(-0.01, 0.01, random);
+            double resultado = ValueInitializer.RandomInitialize(-0.01, 0.01, random);
+            double resultado2 = ValueInitializer.RandomInitialize(-0.01, 0.01, random);
 
             Assert.AreNotEqual(resultado, resultado2);
         }

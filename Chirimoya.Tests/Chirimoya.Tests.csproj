@@ -35,11 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MathNet.Numerics, Version=4.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.4.4.0\lib\net40\MathNet.Numerics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -72,14 +78,24 @@
     <Compile Include="ANN\ActivationFunctions\SoftmaxNaiveTests.cs" />
     <Compile Include="ANN\ActivationFunctions\LogSigmodialTests.cs" />
     <Compile Include="ANN\ActivationFunctions\SoftmaxTests.cs" />
+    <Compile Include="ANN\PerceptronTrainer\Updaters\UnitTest1.cs" />
     <Compile Include="ANN\PerceptronTrainer\ValueInitializer_InitializeTests.cs" />
     <Compile Include="ANN\PerceptronTrainer\ComputeOutputTests.cs" />
     <Compile Include="ANN\PerceptronTrainer\TrainTests.cs" />
     <Compile Include="ANN\PerceptronTrainer\SequenceInitializer_InitializeTests.cs" />
     <Compile Include="ANN\PerceptronTrainer\SequenceShuffler_ShuffleTests.cs" />
-    <Compile Include="ANN\PerceptronTrainer\WeightsUpdater_UpdateTests.cs" />
-    <Compile Include="ANN\PerceptronTrainer\WeightUpdater_UpdateTests.cs" />
-    <Compile Include="ANN\PerceptronTrainer\BiasUpdater_UpdateTests.cs" />
+    <Compile Include="ANN\PerceptronTrainer\Updaters\WeightsUpdater_UpdateTests.cs" />
+    <Compile Include="ANN\PerceptronTrainer\Updaters\WeightUpdater_UpdateTests.cs" />
+    <Compile Include="ANN\PerceptronTrainer\Updaters\BiasUpdater_UpdateTests.cs" />
+    <Compile Include="ANN\RandomInitializeTests.cs" />
+    <Compile Include="Matching\StableMarriage\CreateMenListTests.cs" />
+    <Compile Include="Matching\StableMarriage\CreateTuplesTests.cs" />
+    <Compile Include="Matching\StableMarriage\CreateWomenListTests.cs" />
+    <Compile Include="Matching\StableMarriage\CreateWomenPriorityQueueTests.cs" />
+    <Compile Include="Matching\StableMarriage\GetProposalList2Tests.cs" />
+    <Compile Include="Matching\StableMarriage\GetProposalListTests.cs" />
+    <Compile Include="Matching\StableMarriage\GetSelectedWomanIndexTests.cs" />
+    <Compile Include="Matching\StableMarriage\UnitTest1.cs" />
     <Compile Include="MFEP\GetWeightedEvaluationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MFEP\SolveTests.cs" />
@@ -98,7 +114,9 @@
       <Name>ChirimoyaLib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
