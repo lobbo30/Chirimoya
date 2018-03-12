@@ -55,8 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AHP\Alternative.cs" />
-    <Compile Include="AHP\AnalyticHierarchyProcess.cs" />
     <Compile Include="ANN\ActivationFunctions.cs" />
     <Compile Include="ANN\OutputCalculators.cs" />
     <Compile Include="ANN\Encoders.cs" />
@@ -65,15 +63,15 @@
     <Compile Include="ANN\Perceptron\Updaters.cs" />
     <Compile Include="ANN\SumCalculator.cs" />
     <Compile Include="Inventory\InventoryCalculator.cs" />
-    <Compile Include="Common\Matrix.cs" />
-    <Compile Include="AHP\MultifactorEvaluationProcess.cs" />
     <Compile Include="ANN\Perceptron\PerceptronTrainer.cs" />
     <Compile Include="Matching\StableMarriage\GaleShapley.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ANN\SequenceShuffler.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AHP\" />
     <Folder Include="ANN\FeedForward\" />
+    <Folder Include="MFEP\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
