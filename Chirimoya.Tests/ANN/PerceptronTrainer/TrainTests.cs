@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ChirimoyaLib;
+using ChirimoyaLib.ANN.Perceptron;
 
 namespace Chirimoya.Tests.ANN.PerceptronNS
 {
@@ -36,7 +37,7 @@ namespace Chirimoya.Tests.ANN.PerceptronNS
             };
             double bias = ValueInitializer.Initialize(minValue, maxValue, random);
 
-            PerceptronManager perceptronManager = new PerceptronManager();
+            PerceptronTrainer perceptronManager = new PerceptronTrainer();
             Node trainingResult = perceptronManager.Train(new ChirimoyaLib.Perceptron()
             {
                 TrainingData = trainData,

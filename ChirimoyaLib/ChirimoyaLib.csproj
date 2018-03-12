@@ -52,20 +52,22 @@
     <Compile Include="AHP\Alternative.cs" />
     <Compile Include="AHP\AnalyticHierarchyProcess.cs" />
     <Compile Include="ANN\ActivationFunctions.cs" />
-    <Compile Include="ANN\Perceptron\Encoder.cs" />
+    <Compile Include="ANN\OutputCalculators.cs" />
+    <Compile Include="ANN\Encoders.cs" />
     <Compile Include="ANN\Perceptron\Initializer.cs" />
     <Compile Include="ANN\Perceptron\Models.cs" />
     <Compile Include="ANN\Perceptron\Updaters.cs" />
-    <Compile Include="ANN\FFANN\FFANNManager.cs" />
     <Compile Include="ANN\SumCalculator.cs" />
     <Compile Include="Inventory\InventoryCalculator.cs" />
     <Compile Include="Common\Matrix.cs" />
     <Compile Include="AHP\MultifactorEvaluationProcess.cs" />
-    <Compile Include="ANN\Perceptron\PerceptronManager.cs" />
+    <Compile Include="ANN\Perceptron\PerceptronTrainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ANN\Perceptron\SequenceShuffler.cs" />
+    <Compile Include="ANN\SequenceShuffler.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ANN\FeedForward\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

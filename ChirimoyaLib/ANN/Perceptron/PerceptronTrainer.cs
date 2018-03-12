@@ -1,19 +1,9 @@
 ﻿using System;
-using ChirimoyaLib.ANN;
-using System.Linq;
+using ChirimoyaLib.ANN.Perceptron;
 
 namespace ChirimoyaLib
 {
-    public static class OutputCalculator
-    {
-        public static double ComputeOutput(double[] inputs, Node node)
-        {
-            double suma = SumCalculator.GetSum(inputs, node);
-            return ActivationFunctions.Escalonada(suma);
-        }
-    }
-    
-    public class PerceptronManager
+    public class PerceptronTrainer
     {
         public Node Train(Perceptron perceptron, Random random)
         {

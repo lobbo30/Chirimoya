@@ -25,12 +25,7 @@ namespace ChirimoyaLib
                 temp[i] = Math.Exp(values[i]);
                 denominator += temp[i];
             }
-            double[] result = new double[values.Length];
-            for (int i = 0; i < values.Length; i++)
-            {
-                result[i] = temp[i] / denominator;
-            }
-            return result;
+            return NewMethod(values, denominator, temp);
         }
 
         public static double HyperbolicTan(double suma)
@@ -69,6 +64,11 @@ namespace ChirimoyaLib
                 temp[i] = Math.Exp(values[i] - max);
                 scale += temp[i];
             }
+            return NewMethod(values, scale, temp);
+        }
+
+        private static double[] NewMethod(double[] values, double scale, double[] temp)
+        {
             double[] result = new double[values.Length];
             for (int i = 0; i < values.Length; i++)
             {
