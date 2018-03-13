@@ -13,13 +13,14 @@ namespace Chirimoya.Tests.ANN.FeedForward
         public void ComputeLayer()
         {
             double[] inputs = new double[] { 0.4699, 0.5227, 0.5717, 0.6169 };
-            Node[] nodes = new Node[]
+            double[][] weights = new double[][]
             {
-                new Node() { Weights = new double[] { 0.17, 0.19, 0.21, 0.23 }, Bias = 0.25 },
-                new Node() { Weights = new double[] { 0.18, 0.20, 0.22, 0.24 }, Bias = 0.26 }
+                new double[] { 0.17, 0.19, 0.21, 0.23 },
+                new double[] { 0.18, 0.20, 0.22, 0.24 }
             };
-            
-            double[] resultado = LayerCalculator.ComputeLayer(inputs, nodes);
+            double[] bias = new double[] { 0.25, 0.26 };
+
+            double[] resultado = LayerCalculator.ComputeLayer(inputs, weights, bias);
 
             Assert.AreEqual(0.4920, resultado[0], 0.0001);
             Assert.AreEqual(0.5080, resultado[1], 0.0001);

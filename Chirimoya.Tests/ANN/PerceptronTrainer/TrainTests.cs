@@ -31,29 +31,41 @@ namespace Chirimoya.Tests.ANN.PerceptronNS
             const double maxValue = 0.01;
 
             Random random = new Random();
-            //double[] weights = new double[]
-            //{
-            //    ValueInitializer.Initialize(minValue, maxValue, random),
-            //    ValueInitializer.Initialize(minValue, maxValue, random)
-            //};
-            //double bias = ValueInitializer.Initialize(minValue, maxValue, random);
-            Node node = new Node() { Weights = new double[trainData[0].Inputs.Length], Bias = 0.0 };
+            double[] weights = new double[]
+            {
+                ValueInitializer.RandomInitialize(minValue, maxValue, random),
+                ValueInitializer.RandomInitialize(minValue, maxValue, random)
+            };
+            double bias = ValueInitializer.RandomInitialize(minValue, maxValue, random);
+                        
             //NodeInitializer.RandomInitialize(node, minValue, maxValue, random);
-            node.RandomInitialize(minValue, maxValue, random);
+            //node.RandomInitialize(minValue, maxValue, random);
 
-            PerceptronTrainer perceptronManager = new PerceptronTrainer();
-            Node trainingResult = perceptronManager.Train(new ChirimoyaLib.ANN.Models.Perceptron()
+            PerceptronTrainer perceptronTrainer = new PerceptronTrainer();
+            //Node trainingResult = perceptronManager.Train(new ChirimoyaLib.ANN.Models.Perceptron()
+            //{
+            //    TrainingData = trainData,
+            //    Weights = weights,
+            //    Bias = bias,
+            //    LearningRate = alpha,
+            //    MaxEpochs = maxEpochs
+            //}, random);
+            var perceptron = new ChirimoyaLib.ANN.Models.Perceptron()
             {
                 TrainingData = trainData,
-                Node = node,
+                Weights = weights,
+                Bias = bias,
                 LearningRate = alpha,
                 MaxEpochs = maxEpochs
-            }, random);
+            };
+            perceptronTrainer.Train(perceptron, random);
 
             double[] newInputs = new double[] { 7.0, 6.0 };
-            double resultado = OutputCalculator.ComputeOutput(newInputs, trainingResult);
+            //double resultado = OutputCalculator.ComputeOutput(newInputs, trainingResult);
+            double resultado = OutputCalculator.ComputeOutput(newInputs, perceptron.Weights, perceptron.Bias);
             double[] newInputs2 = new double[] { 3.0, 2.5 };
-            double resultado2 = OutputCalculator.ComputeOutput(newInputs2, trainingResult);
+            //double resultado2 = OutputCalculator.ComputeOutput(newInputs2, trainingResult);
+            double resultado2 = OutputCalculator.ComputeOutput(newInputs2, perceptron.Weights, perceptron.Bias);
 
             Assert.AreEqual(1.0, resultado);
             Assert.AreEqual(-1.0, resultado2);

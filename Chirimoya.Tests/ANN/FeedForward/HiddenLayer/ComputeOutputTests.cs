@@ -13,9 +13,11 @@ namespace Chirimoya.Tests.ANN.FeedForward
         public void ComputeOutput()
         {
             double[] inputs = new double[] { 1.0, 2.0, 3.0 };
-            Node node = new Node() { Weights = new double[] { 0.01, 0.05, 0.09 }, Bias = 0.13 };
+            //Node node = new Node() { Weights = new double[] { 0.01, 0.05, 0.09 }, Bias = 0.13 };
+            double[] weights = new double[] { 0.01, 0.05, 0.09 };
+            double bias = 0.13;
 
-            double resultado = OutputCalculator.ComputeOutput(inputs, node);
+            double resultado = OutputCalculator.ComputeOutput(inputs, weights, bias);
 
             Assert.AreEqual(0.4699, resultado, 0.0001);
         }
@@ -24,9 +26,12 @@ namespace Chirimoya.Tests.ANN.FeedForward
         public void ComputeOutput_WithDifferentArguments()
         {
             double[] inputs = new double[] { 1.0, 2.0, 3.0 };
-            Node node = new Node() { Weights = new double[] { 0.02, 0.06, 0.1 }, Bias = 0.14 };
+            //Node node = new Node() { Weights = new double[] { 0.02, 0.06, 0.1 }, Bias = 0.14 };
 
-            double resultado = OutputCalculator.ComputeOutput(inputs, node);
+            double[] weights = new double[] { 0.02, 0.06, 0.1 };
+            double bias = 0.14;
+
+            double resultado = OutputCalculator.ComputeOutput(inputs, weights, bias);
 
             Assert.AreEqual(0.5227, resultado, 0.0001);
         }

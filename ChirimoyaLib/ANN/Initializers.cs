@@ -15,17 +15,17 @@ namespace ChirimoyaLib
         }
     }
 
-    public static class NodeInitializer
-    {
-        public static void RandomInitialize(this Node node, double minValue, double maxValue, Random random)
-        {
-            for (int i = 0; i < node.Weights.Length; i++)
-            {
-                node.Weights[i] = ValueInitializer.RandomInitialize(minValue, maxValue, random);
-            }
-            node.Bias = ValueInitializer.RandomInitialize(minValue, maxValue, random);
-        }
-    }
+    //public static class NodeInitializer
+    //{
+    //    public static void RandomInitialize(this Node node, double minValue, double maxValue, Random random)
+    //    {
+    //        for (int i = 0; i < node.Weights.Length; i++)
+    //        {
+    //            node.Weights[i] = ValueInitializer.RandomInitialize(minValue, maxValue, random);
+    //        }
+    //        node.Bias = ValueInitializer.RandomInitialize(minValue, maxValue, random);
+    //    }
+    //}
 
     public static class SequenceInitializer
     {

@@ -17,7 +17,8 @@ namespace Chirimoya.Tests.ANN
                         
             double bias = -0.0906;
 
-            double resultado = OutputCalculator.ComputeOutput(inputs, new Node() { Weights = weights, Bias = bias });
+            //double resultado = OutputCalculator.ComputeOutput(inputs, new Node() { Weights = weights, Bias = bias });
+            double resultado = OutputCalculator.ComputeOutput(inputs, weights, bias);
 
             Assert.AreEqual(-1.0, resultado);
         }
@@ -30,7 +31,8 @@ namespace Chirimoya.Tests.ANN
 
             double bias = -0.0019;
 
-            double resultado = OutputCalculator.ComputeOutput(inputs, new Node() { Weights = weights, Bias = bias });
+            //double resultado = OutputCalculator.ComputeOutput(inputs, new Node() { Weights = weights, Bias = bias });
+            double resultado = OutputCalculator.ComputeOutput(inputs, weights, bias);
 
             Assert.AreEqual(1.0, resultado);
         }
@@ -44,7 +46,8 @@ namespace Chirimoya.Tests.ANN
 
             double bias = -0.0906;
 
-            double resultado = OutputCalculator.ComputeOutput(inputs, new Node() { Weights = weights, Bias = bias });
+            //double resultado = OutputCalculator.ComputeOutput(inputs, new Node() { Weights = weights, Bias = bias });
+            double resultado = OutputCalculator.ComputeOutput(inputs, weights, bias);
         }
     }
 }

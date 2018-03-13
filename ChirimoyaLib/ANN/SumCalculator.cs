@@ -8,10 +8,10 @@ namespace ChirimoyaLib
 {
     public class SumCalculator
     {
-        public static double GetSum(double[] inputs, Node node)
+        public static double GetSum(double[] inputs, double[] weights, double bias)
         {
-            double suma = GetSum(inputs, node.Weights);
-            suma += node.Bias;
+            double suma = GetSum(inputs, weights);
+            suma += bias;
             return suma;
         }
 

@@ -44,12 +44,12 @@ namespace ChirimoyaLib
         }
     }
 
-    public static class NodeUpdater
+    public static class PerceptronUpdater
     {
         public static void Update(Perceptron perceptron, int index, double delta)
         {
-            perceptron.Node.Weights = WeightsUpdater.Update(perceptron.Node.Weights, perceptron.TrainingData[index].Inputs, delta, perceptron.LearningRate);
-            perceptron.Node.Bias = BiasUpdater.Update(perceptron.Node.Bias, delta, perceptron.LearningRate);
+            perceptron.Weights = WeightsUpdater.Update(perceptron.Weights, perceptron.TrainingData[index].Inputs, delta, perceptron.LearningRate);
+            perceptron.Bias = BiasUpdater.Update(perceptron.Bias, delta, perceptron.LearningRate);
         }
     }
 }

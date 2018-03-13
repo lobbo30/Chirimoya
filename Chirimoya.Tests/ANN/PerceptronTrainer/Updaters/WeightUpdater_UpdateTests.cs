@@ -16,12 +16,12 @@ namespace Chirimoya.Tests.ANN
             double computedOutput = 1.0;
             double expectedOutput = -1.0;
             double delta = computedOutput - expectedOutput;
-            double alpha = 0.001;
-            double temp = alpha * delta * input;
+            double learningRate = 0.001;
+            double adjustment = learningRate * delta * input;
 
-            double resultado = WeightUpdater.Update(weight, input, temp);
+            double resultado = WeightUpdater.Update(weight, input, adjustment);
 
-            Assert.AreEqual(0.0005, Math.Round(resultado, 4));
+            Assert.AreEqual(0.0005, resultado, 0.0001);
             Assert.IsTrue(resultado < weight);
         }
 
@@ -34,10 +34,10 @@ namespace Chirimoya.Tests.ANN
             double computedOutput = 1.0;
             double expectedOutput = -1.0;
             double delta = computedOutput - expectedOutput;
-            double alpha = 0.0001;
-            double temp = alpha * delta * input;
+            double learningRate = 0.0001;
+            double adjustment = learningRate * delta * input;
 
-            double resultado = WeightUpdater.Update(weight, input, temp);
+            double resultado = WeightUpdater.Update(weight, input, adjustment);
 
             Assert.AreEqual(0.0115, resultado);
             Assert.IsTrue(resultado < weight);
@@ -52,12 +52,12 @@ namespace Chirimoya.Tests.ANN
             double computedOutput = 1.0;
             double expectedOutput = -1.0;
             double delta = computedOutput - expectedOutput;
-            double alpha = 0.001;
-            double temp = alpha * delta * input;
+            double learningRate = 0.001;
+            double adjustment = learningRate * delta * input;
 
-            double resultado = WeightUpdater.Update(weight, input, temp);
+            double resultado = WeightUpdater.Update(weight, input, adjustment);
 
-            Assert.AreEqual(0.0005, Math.Round(resultado, 4));
+            Assert.AreEqual(0.0005, resultado, 0.0001);
             Assert.IsTrue(resultado < weight);
         }
 
@@ -70,12 +70,12 @@ namespace Chirimoya.Tests.ANN
             double computedOutput = -1.0;
             double expectedOutput = 1.0;
             double delta = computedOutput - expectedOutput;
-            double alpha = 0.001;
-            double temp = alpha * delta * input;
+            double learningRate = 0.001;
+            double adjustment = learningRate * delta * input;
 
-            double resultado = WeightUpdater.Update(weight, input, temp);
+            double resultado = WeightUpdater.Update(weight, input, adjustment);
 
-            Assert.AreEqual(0.0125, Math.Round(resultado, 4));
+            Assert.AreEqual(0.0125, resultado, 0.0001);
             Assert.IsTrue(resultado > weight);
         }
 
@@ -88,12 +88,12 @@ namespace Chirimoya.Tests.ANN
             double computedOutput = -1.0;
             double expectedOutput = 1.0;
             double delta = computedOutput - expectedOutput;
-            double alpha = 0.001;
-            double temp = alpha * delta * input;
+            double learningRate = 0.001;
+            double adjustment = learningRate * delta * input;
 
-            double resultado = WeightUpdater.Update(weight, input, temp);
+            double resultado = WeightUpdater.Update(weight, input, adjustment);
 
-            Assert.AreEqual(0.0125, Math.Round(resultado, 4));
+            Assert.AreEqual(0.0125, resultado, 0.0001);
             Assert.IsTrue(resultado > weight);
         }
 

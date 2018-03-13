@@ -8,11 +8,11 @@ namespace ChirimoyaLib.ANN.Models
         public double Output { get; set; }
     }
 
-    public class Node
-    {
-        public double[] Weights { get; set; }
-        public double Bias { get; set; }
-    }
+    //public class Node
+    //{
+    //    public double[] Weights { get; set; }
+    //    public double Bias { get; set; }
+    //}
 
     public abstract class ANN
     {
@@ -22,7 +22,9 @@ namespace ChirimoyaLib.ANN.Models
     public class Perceptron : ANN
     {
         public TrainingData[] TrainingData { get; set; }
-        public Node Node { get; set; }
+        public double[] Weights { get; set; }
+        public double Bias { get; set; }
+        //public Node Node { get; set; }
         public double LearningRate { get; set; }
         public int MaxEpochs { get; set; }
     }
