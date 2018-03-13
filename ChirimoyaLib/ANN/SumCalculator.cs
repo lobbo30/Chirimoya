@@ -10,7 +10,14 @@ namespace ChirimoyaLib
     {
         public static double GetSum(double[] inputs, Node node)
         {
-            if (inputs.Length != node.Weights.Length)
+            double suma = GetSum(inputs, node.Weights);
+            suma += node.Bias;
+            return suma;
+        }
+
+        public static double GetSum(double[] inputs, double[] weights)
+        {
+            if (inputs.Length != weights.Length)
             {
                 throw new ArgumentException();
             }
@@ -18,10 +25,19 @@ namespace ChirimoyaLib
             double suma = 0.0;
             for (int i = 0; i < inputs.Length; i++)
             {
-                suma += inputs[i] * node.Weights[i];
+                suma += inputs[i] * weights[i];
             }
-            suma += node.Bias;
             return suma;
         }
+
+        //public static double GetSum(double[] outputLayerGradients, double[] weights)
+        //{
+        //    double suma = 0.0;
+        //    for (int i = 0; i < outputLayerGradients.Length; i++)
+        //    {
+        //        suma += outputLayerGradients[i] * weights[i];
+        //    }
+        //    return suma;
+        //}
     }
 }

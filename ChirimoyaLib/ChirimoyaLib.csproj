@@ -63,6 +63,7 @@
     <Compile Include="ANN\Perceptron\Models.cs" />
     <Compile Include="ANN\Perceptron\Updaters.cs" />
     <Compile Include="ANN\SumCalculator.cs" />
+    <Compile Include="GradientCalculator.cs" />
     <Compile Include="Inventory\InventoryCalculator.cs" />
     <Compile Include="ANN\Perceptron\PerceptronTrainer.cs" />
     <Compile Include="Matching\StableMarriage\GaleShapley.cs" />

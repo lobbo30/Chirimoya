@@ -91,6 +91,10 @@
     <Compile Include="ANN\PerceptronTrainer\Updaters\WeightUpdater_UpdateTests.cs" />
     <Compile Include="ANN\PerceptronTrainer\Updaters\BiasUpdater_UpdateTests.cs" />
     <Compile Include="ANN\RandomInitializeTests.cs" />
+    <Compile Include="ANN\GetOutputNodeGradientTests.cs" />
+    <Compile Include="ANN\GetOutputLayerGradientsTests.cs" />
+    <Compile Include="ANN\GetDerivativeTests.cs" />
+    <Compile Include="ANN\GetSumTests.cs" />
     <Compile Include="Matching\StableMarriage\CreateMenListTests.cs" />
     <Compile Include="Matching\StableMarriage\CreateTuplesTests.cs" />
     <Compile Include="Matching\StableMarriage\CreateWomenListTests.cs" />
