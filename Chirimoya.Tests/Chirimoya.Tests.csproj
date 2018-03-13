@@ -95,6 +95,8 @@
     <Compile Include="ANN\GetOutputLayerGradientsTests.cs" />
     <Compile Include="ANN\GetDerivativeTests.cs" />
     <Compile Include="ANN\GetSumTests.cs" />
+    <Compile Include="ANN\GetHiddenNodeGradientTests.cs" />
+    <Compile Include="ANN\GetHiddenLayerGradientsTests.cs" />
     <Compile Include="Matching\StableMarriage\CreateMenListTests.cs" />
     <Compile Include="Matching\StableMarriage\CreateTuplesTests.cs" />
     <Compile Include="Matching\StableMarriage\CreateWomenListTests.cs" />
