@@ -27,19 +27,19 @@ namespace ChirimoyaLib
     //    }
     //}
 
-    public static class SequenceInitializer
-    {
-        public static int[] SequenceInitialize(this int[] sequence)
-        {
-            if (sequence == null)
-            {
-                throw new ArgumentNullException();
-            }
-            for (int i = 0; i < sequence.Length; i++)
-            {
-                sequence[i] = i;
-            }
-            return sequence;
-        }
-    }
+    //public static class SequenceInitializer
+    //{
+    //    public static int[] SequenceInitialize(this int[] sequence)
+    //    {
+    //        if (sequence == null)
+    //        {
+    //            throw new ArgumentNullException();
+    //        }
+    //        for (int i = 0; i < sequence.Length; i++)
+    //        {
+    //            sequence[i] = i;
+    //        }
+    //        return sequence;
+    //    }
+    //}
 }

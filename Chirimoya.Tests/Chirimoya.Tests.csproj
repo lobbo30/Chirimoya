@@ -85,7 +85,6 @@
     <Compile Include="ANN\PerceptronTrainer\ValueInitializer_InitializeTests.cs" />
     <Compile Include="ANN\PerceptronTrainer\ComputeOutputTests.cs" />
     <Compile Include="ANN\PerceptronTrainer\TrainTests.cs" />
-    <Compile Include="ANN\PerceptronTrainer\SequenceInitializer_InitializeTests.cs" />
     <Compile Include="ANN\PerceptronTrainer\SequenceShuffler_ShuffleTests.cs" />
     <Compile Include="ANN\PerceptronTrainer\Updaters\WeightsUpdater_UpdateTests.cs" />
     <Compile Include="ANN\PerceptronTrainer\Updaters\WeightUpdater_UpdateTests.cs" />

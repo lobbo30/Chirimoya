@@ -1,6 +1,7 @@
 ﻿using System;
 using ChirimoyaLib.ANN.Perceptron;
 using ChirimoyaLib.ANN.Models;
+using System.Linq;
 
 namespace ChirimoyaLib
 {
@@ -8,8 +9,7 @@ namespace ChirimoyaLib
     {
         public void Train(Perceptron perceptron, Random random)
         {
-            int[] sequence = new int[perceptron.TrainingData.Length];
-            sequence.SequenceInitialize();
+            var sequence = Enumerable.Range(0, perceptron.TrainingData.Length).ToArray();
 
             for (int epoch = 0; epoch < perceptron.MaxEpochs; epoch++)
             {
