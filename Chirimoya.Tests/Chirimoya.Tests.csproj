@@ -97,6 +97,14 @@
     <Compile Include="ANN\FeedForward\GradientCalculator\GetHiddenLayerGradientsTests.cs" />
     <Compile Include="ANN\FeedForward\Updaters\UnitTest3.cs" />
     <Compile Include="ANN\FeedForward\Updaters\UnitTest4.cs" />
+    <Compile Include="Matching\StableMarriage2\CreateTuplesTests.cs" />
+    <Compile Include="Matching\StableMarriage2\CreateWomenPriorityQueueTests.cs" />
+    <Compile Include="Matching\StableMarriage2\CreateMenListTests.cs" />
+    <Compile Include="Matching\StableMarriage2\CreateProposalListTests.cs" />
+    <Compile Include="Matching\StableMarriage2\CreatePretendersListByWomanTests.cs" />
+    <Compile Include="Matching\StableMarriage2\CreateWomenListTests.cs" />
+    <Compile Include="Matching\StableMarriage2\GetBestPretenderTests.cs" />
+    <Compile Include="Matching\StableMarriage2\CreatePretenderListTests.cs" />
     <Compile Include="Matching\StableMarriage\CreateMenListTests.cs" />
     <Compile Include="Matching\StableMarriage\CreateTuplesTests.cs" />
     <Compile Include="Matching\StableMarriage\CreateWomenListTests.cs" />
@@ -120,6 +128,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

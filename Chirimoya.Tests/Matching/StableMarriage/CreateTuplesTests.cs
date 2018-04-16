@@ -57,5 +57,14 @@ namespace ChirimoyaLib.Tests
                 new Tuple<int, double>(4, 0.2)
             }, resultado);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void CreateTuples_WhenValuesAreOutOfRange()
+        {
+            double[] input = new double[] { 0.7, -0.3, 0.2, 0.1 };
+
+            Tuple<int, double>[] resultado = GaleShapley.CreateTuples(input);
+        }
     }
 }

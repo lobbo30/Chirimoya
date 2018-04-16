@@ -67,6 +67,7 @@
     <Compile Include="ANN\FeedForward\GradientCalculator.cs" />
     <Compile Include="Inventory\InventoryCalculator.cs" />
     <Compile Include="ANN\Perceptron\PerceptronTrainer.cs" />
+    <Compile Include="Matching\StableMarriage2\StableMarriageManager.cs" />
     <Compile Include="Matching\StableMarriage\GaleShapley.cs" />
     <Compile Include="MFEP\MFEPEvaluator.cs" />
     <Compile Include="MFEP\Models.cs" />

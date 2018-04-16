@@ -85,6 +85,11 @@ namespace ChirimoyaLib.Matching.StableMarriage
     {
         public static Tuple<int, double>[] CreateTuples(double[] input)
         {
+            if (!input.All(i => i >= 0.0 && i <= 1.0))
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
             Tuple<int, double>[] tuples = new Tuple<int, double>[input.Length];
             for (int i = 0; i < input.Length; i++)
             {
