@@ -19,7 +19,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
                 new double[] { 0.4, 0.2, 0.1, 0.3 }
             };
 
-            StableMarriageManager stableMarriageManager = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManager = new StableMarriageCalculator();
             Dictionary<int, Woman> resultado = stableMarriageManager.CreateWomenList(womenMatrix);
 
             CollectionAssert.AreEqual(new Dictionary<int, Woman>()
@@ -66,7 +66,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
                 new double[] { 0.2, 0.7, 0.9, 0.1 }
             };
 
-            StableMarriageManager stableMarriageManager = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManager = new StableMarriageCalculator();
             Dictionary<int, Woman> resultado = stableMarriageManager.CreateWomenList(womenMatrix);
 
             CollectionAssert.AreEqual(new Dictionary<int, Woman>()
@@ -106,7 +106,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
         [ExpectedException(typeof(ArgumentNullException))]
         public void CreateWomenList_WhenArgumentIsNull()
         {
-            StableMarriageManager stableMarriageManager = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManager = new StableMarriageCalculator();
             Dictionary<int, Woman> resultado = stableMarriageManager.CreateWomenList(null);
         }
     }

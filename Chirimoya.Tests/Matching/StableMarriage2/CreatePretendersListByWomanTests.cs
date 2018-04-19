@@ -19,7 +19,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
                 { 3, 3 }
             };
 
-            StableMarriageManager stableMarriageManager = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManager = new StableMarriageCalculator();
             var resultado = stableMarriageManager.CreatePretendersListByWoman(0, proposals);
 
             CollectionAssert.AreEqual(new List<int>() { 2 }, resultado);
@@ -36,7 +36,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
                 { 3, 3 }
             };
 
-            StableMarriageManager stableMarriageManager = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManager = new StableMarriageCalculator();
             var resultado = stableMarriageManager.CreatePretendersListByWoman(3, proposals);
 
             CollectionAssert.AreEqual(new List<int>() { 0, 3 }, resultado);
@@ -53,7 +53,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
                 { 3, 3 }
             };
 
-            StableMarriageManager stableMarriageManager = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManager = new StableMarriageCalculator();
             var resultado = stableMarriageManager.CreatePretendersListByWoman(2, proposals);
 
             CollectionAssert.AreEqual(new List<int>(), resultado);

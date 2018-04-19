@@ -74,7 +74,7 @@ namespace ChirimoyaLib.Matching.StableMarriage2
         }
     }
 
-    public class StableMarriageManager
+    public class StableMarriageCalculator
     {
         public Tuple<int, double>[] CreateTuples(double[] input)
         {

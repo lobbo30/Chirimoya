@@ -79,7 +79,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
             List<int> pretenderListByWoman = new List<int>() { 3, 0 };
             int womanIndex = 3;
 
-            StableMarriageManager stableMarriageManage = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManage = new StableMarriageCalculator();
             int? resultado = stableMarriageManage.GetBestPretender(womanIndex, pretenderListByWoman, womenList);
 
             Assert.AreEqual(0, resultado);
@@ -123,7 +123,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
             List<int> pretenderListByWoman = new List<int>() { 2 };
             int womanIndex = 3;
 
-            StableMarriageManager stableMarriageManage = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManage = new StableMarriageCalculator();
             int? resultado = stableMarriageManage.GetBestPretender(womanIndex, pretenderListByWoman, womenList);
 
             Assert.AreEqual(2, resultado);
@@ -167,7 +167,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
             List<int> pretenderListByWoman = new List<int>();
             int womanIndex = 3;
 
-            StableMarriageManager stableMarriageManage = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManage = new StableMarriageCalculator();
             int? resultado = stableMarriageManage.GetBestPretender(womanIndex, pretenderListByWoman, womenList);
 
             Assert.IsNull(resultado);

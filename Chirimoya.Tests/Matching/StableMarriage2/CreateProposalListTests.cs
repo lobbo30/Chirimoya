@@ -19,7 +19,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
                 { 3, new Man() { Id = 3, WomenPriorityQueue = new Queue<int>(new int[] { 3, 2, 1, 0 }), Free = true } }
             };
 
-            StableMarriageManager stableMarriageManager = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManager = new StableMarriageCalculator();
             Dictionary<int, int> resultado = stableMarriageManager.CreateProposalList(menList);
 
             CollectionAssert.AreEqual(new Dictionary<int, int>()
@@ -42,7 +42,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
                 { 3, new Man() { Id = 3, WomenPriorityQueue = new Queue<int>(new int[] { 0, 3, 1, 2 }), Free = true } }
             };
 
-            StableMarriageManager stableMarriageManager = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManager = new StableMarriageCalculator();
             Dictionary<int, int> resultado = stableMarriageManager.CreateProposalList(menList);
 
             CollectionAssert.AreEqual(new Dictionary<int, int>()

@@ -13,7 +13,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
         {
             double[] input = new double[] { 0.7, 0.6, 0.5, 0.8 };
 
-            StableMarriageManager stableMarriageManager = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManager = new StableMarriageCalculator();
             Tuple<int, double>[] resultado = stableMarriageManager.CreateTuples(input);
 
             CollectionAssert.AreEqual(new Tuple<int, double>[]
@@ -30,7 +30,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
         {
             double[] input = new double[] { 0.1, 0.7, 0.3, 0.4 };
 
-            StableMarriageManager stableMarriageManager = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManager = new StableMarriageCalculator();
             Tuple<int, double>[] resultado = stableMarriageManager.CreateTuples(input);
 
             CollectionAssert.AreEqual(new Tuple<int, double>[]
@@ -46,7 +46,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
         [ExpectedException(typeof(ArgumentNullException))]
         public void CreateTuples_WhenArgumentIsNull()
         {
-            StableMarriageManager stableMarriageManager = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManager = new StableMarriageCalculator();
             Tuple<int, double>[] resultado = stableMarriageManager.CreateTuples(null);
         }
 
@@ -56,7 +56,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
         {
             double[] input = new double[] { 0.1, 0.7, 0.3, -0.4 };
 
-            StableMarriageManager stableMarriageManager = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManager = new StableMarriageCalculator();
             Tuple<int, double>[] resultado = stableMarriageManager.CreateTuples(input);
         }
     }

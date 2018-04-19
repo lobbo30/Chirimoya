@@ -19,7 +19,7 @@ namespace Chirimoya.Tests.Matching.StableMarriage2
                 { 3, 3 }
             };
 
-            StableMarriageManager stableMarriageManager = new StableMarriageManager();
+            StableMarriageCalculator stableMarriageManager = new StableMarriageCalculator();
             const int womenCount = 4;
             Dictionary<int, List<int>> resultado = stableMarriageManager.CreatePretenderList(womenCount, proposals);
 
