@@ -65,6 +65,8 @@
     <Compile Include="ANN\SumCalculator.cs" />
     <Compile Include="ANN\FeedForward\Updaters.cs" />
     <Compile Include="ANN\FeedForward\GradientCalculator.cs" />
+    <Compile Include="GA\ChromosomeManager.cs" />
+    <Compile Include="GA\GAManager.cs" />
     <Compile Include="Inventory\InventoryCalculator.cs" />
     <Compile Include="ANN\Perceptron\PerceptronTrainer.cs" />
     <Compile Include="Matching\StableMarriage2\StableMarriageManager.cs" />

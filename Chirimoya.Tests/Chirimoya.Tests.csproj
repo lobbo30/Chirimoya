@@ -97,6 +97,8 @@
     <Compile Include="ANN\FeedForward\GradientCalculator\GetHiddenLayerGradientsTests.cs" />
     <Compile Include="ANN\FeedForward\Updaters\UnitTest3.cs" />
     <Compile Include="ANN\FeedForward\Updaters\UnitTest4.cs" />
+    <Compile Include="GA\CrossoverTests.cs" />
+    <Compile Include="GA\PartitionTests.cs" />
     <Compile Include="Matching\StableMarriage2\CreateTuplesTests.cs" />
     <Compile Include="Matching\StableMarriage2\CreateWomenPriorityQueueTests.cs" />
     <Compile Include="Matching\StableMarriage2\CreateMenListTests.cs" />
