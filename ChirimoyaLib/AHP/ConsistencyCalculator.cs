@@ -6,6 +6,11 @@ using MathNet.Numerics.LinearAlgebra;
 
 namespace ChirimoyaLib.AHP
 {
+    public enum RandomIndexType : byte
+    {
+        OakRidge, Wharton, GoldenWang, LaneVerdini, Forman, Noble, TumalaWan, Aguaron, AlonsoLamata
+    }
+
     public struct RandomIndex
     {
         public float? OakRidge { get; set; }
@@ -22,13 +27,8 @@ namespace ChirimoyaLib.AHP
 
     public class ConsistencyCalculator
     {
-        public static double GetConsistencyRatio(double consistencyIndex, int alternativesCount)
+        private static double? GetRandomIndex(int alternativesCount, RandomIndexType randomIndexType)
         {
-            if (alternativesCount < 2)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-
             Dictionary<int, RandomIndex> randomIndices = new Dictionary<int, RandomIndex>()
             {
                 { 2, new RandomIndex() { OakRidge = null, Wharton = 0f, GoldenWang = null, LaneVerdini = null, Forman = null, Noble = null, TumalaWan = null, Aguaron = null, AlonsoLamata = null } },
@@ -44,13 +44,71 @@ namespace ChirimoyaLib.AHP
                 { 12, new RandomIndex() { OakRidge = 1.476f, Wharton = null, GoldenWang = 1.5356f, LaneVerdini = 1.54f, Forman = null, Noble = 1.44f, TumalaWan = 1.456f, Aguaron = 1.535f, AlonsoLamata = 1.5365f } },
                 { 13, new RandomIndex() { OakRidge = 1.564f, Wharton = null, GoldenWang = 1.5571f, LaneVerdini = null, Forman = null, Noble = 1.46f, TumalaWan = 1.474f, Aguaron = 1.555f, AlonsoLamata = 1.5551f } },
                 { 14, new RandomIndex() { OakRidge = 1.568f, Wharton = null, GoldenWang = 1.5714f, LaneVerdini = 1.57f, Forman = null, Noble = 1.48f, TumalaWan = 1.491f, Aguaron = 1.570f, AlonsoLamata = 1.5713f } },
-                { 15, new RandomIndex() { OakRidge = 1.586f, Wharton = null, GoldenWang = 1.5831f, LaneVerdini = null, Forman = null, Noble = 1.49f, TumalaWan = 1.501f, Aguaron = 1.583f, AlonsoLamata = 1.5838f } }
-            };
-            //if (!randomIndices.ContainsKey(alternativesCount))
-            //{
+                { 15, new RandomIndex() { OakRidge = 1.586f, Wharton = null, GoldenWang = 1.5831f, LaneVerdini = null, Forman = null, Noble = 1.49f, TumalaWan = 1.501f, Aguaron = 1.583f, AlonsoLamata = 1.5838f } },
+                { 16, new RandomIndex() { AlonsoLamata = 1.5978f } },
+                { 17, new RandomIndex() { AlonsoLamata = 1.6086f } },
+                { 18, new RandomIndex() { AlonsoLamata = 1.6181f } },
+                { 19, new RandomIndex() { AlonsoLamata = 1.6265f } },
+                { 20, new RandomIndex() { AlonsoLamata = 1.6341f } },
+                { 21, new RandomIndex() { AlonsoLamata = 1.6409f } },
+                { 22, new RandomIndex() { AlonsoLamata = 1.6470f } },
+                { 23, new RandomIndex() { AlonsoLamata = 1.6526f } },
+                { 24, new RandomIndex() { AlonsoLamata = 1.6577f } },
+                { 25, new RandomIndex() { AlonsoLamata = 1.6624f } },
+                { 26, new RandomIndex() { AlonsoLamata = 1.6667f } },
+                { 27, new RandomIndex() { AlonsoLamata = 1.6706f } },
+                { 28, new RandomIndex() { AlonsoLamata = 1.6743f } },
+                { 29, new RandomIndex() { AlonsoLamata = 1.6777f } },
+                { 30, new RandomIndex() { AlonsoLamata = 1.6809f } },
+                { 31, new RandomIndex() { AlonsoLamata = 1.6839f } },
+                { 32, new RandomIndex() { AlonsoLamata = 1.6867f } },
+                { 33, new RandomIndex() { AlonsoLamata = 1.6893f } },
+                { 34, new RandomIndex() { AlonsoLamata = 1.6917f } },
+                { 35, new RandomIndex() { AlonsoLamata = 1.6940f } },
+                { 36, new RandomIndex() { AlonsoLamata = 1.6962f } },
+                { 37, new RandomIndex() { AlonsoLamata = 1.6982f } },
+                { 38, new RandomIndex() { AlonsoLamata = 1.7002f } },
+                { 39, new RandomIndex() { AlonsoLamata = 1.7020f } }
 
-            //}
-            return consistencyIndex / (double)randomIndices[alternativesCount].Wharton;
+            };
+
+            switch (randomIndexType)
+            {
+                case RandomIndexType.OakRidge:
+                    return randomIndices[alternativesCount].OakRidge;
+                case RandomIndexType.Wharton:
+                    return randomIndices[alternativesCount].Wharton;
+                case RandomIndexType.GoldenWang:
+                    return randomIndices[alternativesCount].GoldenWang;
+                case RandomIndexType.LaneVerdini:
+                    return randomIndices[alternativesCount].LaneVerdini;
+                case RandomIndexType.Forman:
+                    return randomIndices[alternativesCount].Forman;
+                case RandomIndexType.Noble:
+                    return randomIndices[alternativesCount].Noble;
+                case RandomIndexType.TumalaWan:
+                    return randomIndices[alternativesCount].TumalaWan;
+                case RandomIndexType.Aguaron:
+                    return randomIndices[alternativesCount].Aguaron;
+                case RandomIndexType.AlonsoLamata:
+                    return randomIndices[alternativesCount].AlonsoLamata;
+            }
+            return null;
+        }
+
+        public static double GetConsistencyRatio(double consistencyIndex, int alternativesCount)
+        {
+            if (alternativesCount < 2)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            double? randomIndex = GetRandomIndex(alternativesCount, RandomIndexType.Wharton);
+            if (!randomIndex.HasValue)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            return consistencyIndex / (double)randomIndex;
         }
 
         public static double GetConsistencyRatio(Matrix<double> pairwiseComparisonsMatrix)

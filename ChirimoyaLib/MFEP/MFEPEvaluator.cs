@@ -24,7 +24,7 @@ namespace ChirimoyaLib.MFEP
 
         public static Alternative Solve(ICollection<Alternative> alternatives, out double weightedEvaluation)
         {
-            var bestAlternative = GetEvaluatedAlternatives(alternatives).First();
+            var bestAlternative = Solve(alternatives).First();
             weightedEvaluation = bestAlternative.WeightedEvaluation;
             return bestAlternative;
         }
@@ -33,15 +33,19 @@ namespace ChirimoyaLib.MFEP
         {
             //IOrderedEnumerable<Alternative> query = GetEvaluatedAlternatives(alternatives);
             //return query.ToList();
-            return GetEvaluatedAlternatives(alternatives).ToList();
-        }
-
-        private static IOrderedEnumerable<Alternative> GetEvaluatedAlternatives(ICollection<Alternative> alternatives)
-        {
+            //return GetEvaluatedAlternatives(alternatives).ToList();
             var query = from a in alternatives
                         orderby a.WeightedEvaluation descending
                         select a;
-            return query;
+            return query.ToList();
         }
+
+        //private static IOrderedEnumerable<Alternative> GetEvaluatedAlternatives(ICollection<Alternative> alternatives)
+        //{
+        //    var query = from a in alternatives
+        //                orderby a.WeightedEvaluation descending
+        //                select a;
+        //    return query;
+        //}
     }
 }
