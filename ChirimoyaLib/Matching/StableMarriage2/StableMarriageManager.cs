@@ -5,73 +5,135 @@ using System.Text;
 
 namespace ChirimoyaLib.Matching.StableMarriage2
 {
-    public class Man
+    public class Man : IEquatable<Man>
     {
         public int Id { get; set; }
         public Queue<int> WomenPriorityQueue { get; set; }
         public bool Free { get; set; }
 
-        public bool Equals(Man other)
-        {
-            if (other == null)
-            {
-                return false;
-            }
-            return Id == other.Id && WomenPriorityQueue.Equals(other.WomenPriorityQueue) && Free == other.Free;
-        }
-
         public override bool Equals(object obj)
         {
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return false;
-            }
+            return Equals(obj as Man);
+        }
 
-            if (obj is Man)
-            {
-                return ((Man)obj).Id == Id && ((Man)obj).WomenPriorityQueue.SequenceEqual(WomenPriorityQueue) && ((Man)obj).Free == Free;
-            }
-            return base.Equals(obj);
+        public bool Equals(Man other)
+        {
+            return other != null &&
+                   Id == other.Id &&
+                   EqualityComparer<Queue<int>>.Default.Equals(WomenPriorityQueue, other.WomenPriorityQueue) &&
+                   Free == other.Free;
         }
 
         public override int GetHashCode()
         {
-            return Id;
+            var hashCode = 1514825827;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<Queue<int>>.Default.GetHashCode(WomenPriorityQueue);
+            hashCode = hashCode * -1521134295 + Free.GetHashCode();
+            return hashCode;
         }
+
+        public static bool operator ==(Man man1, Man man2)
+        {
+            return EqualityComparer<Man>.Default.Equals(man1, man2);
+        }
+
+        public static bool operator !=(Man man1, Man man2)
+        {
+            return !(man1 == man2);
+        }
+
+        //public bool Equals(Man other)
+        //{
+        //    if (other == null)
+        //    {
+        //        return false;
+        //    }
+        //    return Id == other.Id && WomenPriorityQueue.Equals(other.WomenPriorityQueue) && Free == other.Free;
+        //}
+
+        //public override bool Equals(object obj)
+        //{
+        //    if (obj == null || GetType() != obj.GetType())
+        //    {
+        //        return false;
+        //    }
+
+        //    if (obj is Man)
+        //    {
+        //        return ((Man)obj).Id == Id && ((Man)obj).WomenPriorityQueue.SequenceEqual(WomenPriorityQueue) && ((Man)obj).Free == Free;
+        //    }
+        //    return base.Equals(obj);
+        //}
+
+        //public override int GetHashCode()
+        //{
+        //    return Id;
+        //}
     }
 
-    public class Woman
+    public class Woman : IEquatable<Woman>
     {
         public int Id { get; set; }
         public Tuple<int, double>[] MenPriorityList { get; set; }
 
-        public bool Equals(Woman other)
-        {
-            if (other == null)
-            {
-                return false;
-            }
-            return Id == other.Id && MenPriorityList.Equals(other.MenPriorityList);
-        }
-
         public override bool Equals(object obj)
         {
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return false;
-            }
+            return Equals(obj as Woman);
+        }
 
-            if (obj is Woman)
-            {
-                return ((Woman)obj).Id == Id && ((Woman)obj).MenPriorityList.SequenceEqual(MenPriorityList);
-            }
-            return base.Equals(obj);
+        public bool Equals(Woman other)
+        {
+            return other != null &&
+                   Id == other.Id &&
+                   EqualityComparer<Tuple<int, double>[]>.Default.Equals(MenPriorityList, other.MenPriorityList);
         }
 
         public override int GetHashCode()
         {
-            return Id;
+            var hashCode = 2028925531;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<Tuple<int, double>[]>.Default.GetHashCode(MenPriorityList);
+            return hashCode;
         }
+
+        public static bool operator ==(Woman woman1, Woman woman2)
+        {
+            return EqualityComparer<Woman>.Default.Equals(woman1, woman2);
+        }
+
+        public static bool operator !=(Woman woman1, Woman woman2)
+        {
+            return !(woman1 == woman2);
+        }
+
+        //public bool Equals(Woman other)
+        //{
+        //    if (other == null)
+        //    {
+        //        return false;
+        //    }
+        //    return Id == other.Id && MenPriorityList.Equals(other.MenPriorityList);
+        //}
+
+        //public override bool Equals(object obj)
+        //{
+        //    if (obj == null || GetType() != obj.GetType())
+        //    {
+        //        return false;
+        //    }
+
+        //    if (obj is Woman)
+        //    {
+        //        return ((Woman)obj).Id == Id && ((Woman)obj).MenPriorityList.SequenceEqual(MenPriorityList);
+        //    }
+        //    return base.Equals(obj);
+        //}
+
+        //public override int GetHashCode()
+        //{
+        //    return Id;
+        //}
     }
 
     public class StableMarriageCalculator

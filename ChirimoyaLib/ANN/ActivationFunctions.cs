@@ -9,11 +9,7 @@ namespace ChirimoyaLib.ANN
     {
         public static double Escalonada(double suma)
         {
-            if (suma >= 0.0)
-            {
-                return 1.0;
-            }
-            return -1.0;
+            return suma >= 0.0 ? 1.0 : -1.0;
         }
 
         public static double[] SoftmaxNaive(double[] values)

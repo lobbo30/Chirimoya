@@ -8,18 +8,18 @@ namespace ChirimoyaLib.GA
 {
     public class ChromosomeManager
     {
-        public IEnumerable<bool>[] Partition(IEnumerable<bool> parent, int position)
+        public IEnumerable<bool>[] Partition(IEnumerable<bool> parent, int crossoverPoint)
         {
             if (parent == null)
             {
                 throw new ArgumentNullException();
             }
-            if (position >= parent.Count())
+            if (crossoverPoint >= parent.Count())
             {
                 throw new ArgumentOutOfRangeException();
             }
-            var part1 = parent.Take(position + 1).ToArray();
-            var part2 = parent.Skip(position + 1).ToArray();
+            var part1 = parent.Take(crossoverPoint + 1).ToArray();
+            var part2 = parent.Skip(crossoverPoint + 1).ToArray();
  
             return new bool[][] { part1, part2 };
         }
