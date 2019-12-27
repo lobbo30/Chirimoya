@@ -31,12 +31,20 @@ namespace Chirimoya.Tests.ANN.PerceptronNS
             const double maxValue = 0.01;
 
             Random random = new Random();
-            double[] weights = new double[]
+            //double[] weights = new double[]
+            //{
+            //    ValueInitializer.RandomInitialize(minValue, maxValue, random),
+            //    ValueInitializer.RandomInitialize(minValue, maxValue, random)
+            //};
+            double[] weights = new double[2];
+            for (int i = 0; i < weights.Length; i++)
             {
-                ValueInitializer.RandomInitialize(minValue, maxValue, random),
-                ValueInitializer.RandomInitialize(minValue, maxValue, random)
-            };
-            double bias = ValueInitializer.RandomInitialize(minValue, maxValue, random);
+                //weights[i] = ValueInitializer.RandomInitialize(minValue, maxValue, random);
+                weights[i] = weights[i].Initialize(minValue, maxValue, random);
+            }
+            //double bias = ValueInitializer.RandomInitialize(minValue, maxValue, random);
+            double bias = new double();
+            bias = bias.Initialize(minValue, maxValue, random);
                         
             //NodeInitializer.RandomInitialize(node, minValue, maxValue, random);
             //node.RandomInitialize(minValue, maxValue, random);

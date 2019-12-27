@@ -14,8 +14,8 @@ namespace Chirimoya.Tests.ANN
             double computedOutput = 1.0;
             double expectedOutput = -1.0;
             double delta = computedOutput - expectedOutput;
-            double alpha = 0.001;
-            double resultado = BiasUpdater.Update(bias, delta, alpha);
+            double learningRate = 0.001; // también se le llama "alpha"
+            double resultado = BiasUpdater.Update(bias, delta, learningRate);
 
             Assert.AreEqual(-0.0926, resultado);
         }
@@ -27,8 +27,8 @@ namespace Chirimoya.Tests.ANN
             double computedOutput = -1.0;
             double expectedOutput = 1.0;
             double delta = computedOutput - expectedOutput;
-            double alpha = 0.0001;
-            double resultado = BiasUpdater.Update(bias, delta, alpha);
+            double learningRate = 0.0001;
+            double resultado = BiasUpdater.Update(bias, delta, learningRate);
 
             Assert.AreEqual(-0.0121, resultado);
         }
@@ -40,8 +40,8 @@ namespace Chirimoya.Tests.ANN
             double computedOutput = 1.0;
             double expectedOutput = 1.0;
             double delta = computedOutput - expectedOutput;
-            double alpha = 0.001;
-            double resultado = BiasUpdater.Update(bias, delta, alpha);
+            double learningRate = 0.001;
+            double resultado = BiasUpdater.Update(bias, delta, learningRate);
 
             Assert.AreEqual(-0.0906, resultado);
         }

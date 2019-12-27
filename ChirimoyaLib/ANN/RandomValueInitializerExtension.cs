@@ -5,13 +5,29 @@ namespace ChirimoyaLib
 {
     public static class ValueInitializer
     {
-        public static double RandomInitialize(double minValue, double maxValue, Random random)
+        //public static double RandomInitialize(double minValue, double maxValue, Random random)
+        //{
+        //    if (minValue > maxValue)
+        //    {
+        //        throw new ArgumentException();
+        //    }
+        //    return random.NextDouble() * (maxValue - minValue) + minValue;
+        //}
+    }
+
+    public static class RandomValueInitializerExtension
+    {
+        public static double Initialize(this double value, double minValue, double maxValue, Random random)
         {
             if (minValue > maxValue)
             {
                 throw new ArgumentException();
             }
-            return random.NextDouble() * (maxValue - minValue) + minValue;
+            object randomLock = new object();
+            lock (randomLock)
+            {
+                return random.NextDouble() * (maxValue - minValue) + minValue;
+            }
         }
     }
 

@@ -40,8 +40,8 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MathNet.Numerics, Version=4.8.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MathNet.Numerics.4.8.1\lib\net40\MathNet.Numerics.dll</HintPath>
+    <Reference Include="MathNet.Numerics, Version=4.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.4.9.0\lib\net40\MathNet.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -59,14 +59,14 @@
     <Compile Include="ANN\ActivationFunctions.cs" />
     <Compile Include="ANN\OutputCalculators.cs" />
     <Compile Include="ANN\Encoders.cs" />
-    <Compile Include="ANN\Initializers.cs" />
     <Compile Include="ANN\Models.cs" />
     <Compile Include="ANN\Perceptron\Updaters.cs" />
+    <Compile Include="ANN\RandomValueInitializerExtension.cs" />
     <Compile Include="ANN\SumCalculator.cs" />
     <Compile Include="ANN\FeedForward\Updaters.cs" />
     <Compile Include="ANN\FeedForward\GradientCalculator.cs" />
     <Compile Include="GA\ChromosomeManager.cs" />
-    <Compile Include="GA\Cromosoma.cs" />
+    <Compile Include="GA\Chromosome.cs" />
     <Compile Include="GA\GAManager.cs" />
     <Compile Include="GA\Gene.cs" />
     <Compile Include="Inventory\InventoryCalculator.cs" />
