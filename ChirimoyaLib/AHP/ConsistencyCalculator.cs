@@ -84,12 +84,16 @@ namespace ChirimoyaLib.AHP
             //}
             List<RandomIndexCollection> randomIndexCollections = new List<RandomIndexCollection>()
             {
-                new RandomIndexCollection() { Quantity = 2, RandomIndices = new List<RandomIndex>() 
-                { 
-                    new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = 0f } 
+                new RandomIndexCollection()
+                {
+                    Quantity = 2,
+                    RandomIndices = new List<RandomIndex>()
+                    {
+                        new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = 0f }
+                    }
                 },
-                new RandomIndexCollection() { Quantity = 3, RandomIndices = new List<RandomIndex>() 
-                { 
+                new RandomIndexCollection() { Quantity = 3, RandomIndices = new List<RandomIndex>()
+                {
                     new RandomIndex() { RandomIndexType = RandomIndexType.OakRidge, Value = 0.382f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = 0.58f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.GoldenWang, Value = 0.5799f },
@@ -98,8 +102,8 @@ namespace ChirimoyaLib.AHP
                     new RandomIndex() { RandomIndexType = RandomIndexType.Noble, Value = 0.49f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.TumalaWan, Value = 0.500f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Aguaron, Value = 0.525f },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 0.5245f }   
-                },
+                    new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 0.5245f }
+                } },
                 new RandomIndexCollection() { Quantity = 4, RandomIndices = new List<RandomIndex>()
                 {
                     new RandomIndex() { RandomIndexType = RandomIndexType.OakRidge, Value = 0.946f },
@@ -111,7 +115,7 @@ namespace ChirimoyaLib.AHP
                     new RandomIndex() { RandomIndexType = RandomIndexType.TumalaWan, Value = 0.834f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Aguaron, Value = 0.882f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 0.8815f }
-                },
+                } },
                 new RandomIndexCollection() { Quantity = 5, RandomIndices = new List<RandomIndex>()
                 {
                     new RandomIndex() { RandomIndexType = RandomIndexType.OakRidge, Value = 1.220f },
@@ -123,7 +127,7 @@ namespace ChirimoyaLib.AHP
                     new RandomIndex() { RandomIndexType = RandomIndexType.TumalaWan, Value = 1.046f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Aguaron, Value = 1.115f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 1.1086f }
-                },
+                } },
                 new RandomIndexCollection() { Quantity = 6, RandomIndices = new List<RandomIndex>()
                 {
                     new RandomIndex() { RandomIndexType = RandomIndexType.OakRidge, Value = 1.032f },
@@ -135,7 +139,7 @@ namespace ChirimoyaLib.AHP
                     new RandomIndex() { RandomIndexType = RandomIndexType.TumalaWan, Value = 1.178f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Aguaron, Value = 1.252f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 1.2479f }
-                },
+                } },
                 new RandomIndexCollection() { Quantity = 7, RandomIndices = new List<RandomIndex>()
                 {
                     new RandomIndex() { RandomIndexType = RandomIndexType.OakRidge, Value = 1.468f },
@@ -147,106 +151,113 @@ namespace ChirimoyaLib.AHP
                     new RandomIndex() { RandomIndexType = RandomIndexType.TumalaWan, Value = 1.267f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Aguaron, Value = 1.341f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 1.3417f }
-                },
+                } },
                 new RandomIndexCollection() { Quantity = 8, RandomIndices = new List<RandomIndex>()
                 {
                     new RandomIndex() { RandomIndexType = RandomIndexType.OakRidge, Value = 1.402f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = 1.41f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.GoldenWang, Value = 1.3952f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.LaneVerdini, Value = 1.40f },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Noble, Value = 1.31f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.TumalaWan, Value = 1.326f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Aguaron, Value = 1.404f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 1.4056f }
-                },
+                } },
                 new RandomIndexCollection() { Quantity = 9, RandomIndices = new List<RandomIndex>()
                 {
                     new RandomIndex() { RandomIndexType = RandomIndexType.OakRidge, Value = 1.350f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = 1.45f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.GoldenWang, Value = 1.4537f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.LaneVerdini, Value = 1.45f },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Noble, Value = 1.36f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.TumalaWan, Value = 1.369f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Aguaron, Value = 1.452f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 1.4499f }
-                },
+                } },
                 new RandomIndexCollection() { Quantity = 10, RandomIndices = new List<RandomIndex>()
                 {
                     new RandomIndex() { RandomIndexType = RandomIndexType.OakRidge, Value = 1.464f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = 1.49f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.GoldenWang, Value = 1.4882f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.LaneVerdini, Value = 1.49f },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Noble, Value = 1.39f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.TumalaWan, Value = 1.406f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Aguaron, Value = 1.484f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 1.4854f }
-                },
+                } },
                 new RandomIndexCollection() { Quantity = 11, RandomIndices = new List<RandomIndex>()
                 {
                     new RandomIndex() { RandomIndexType = RandomIndexType.OakRidge, Value = 1.576f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = 1.51f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.GoldenWang, Value = 1.5117f },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.LaneVerdini, Value = null },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.LaneVerdini, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Noble, Value = 1.42f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.TumalaWan, Value = 1.433f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Aguaron, Value = 1.513f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 1.5141f }
-                },
+                } },
                 new RandomIndexCollection() { Quantity = 12, RandomIndices = new List<RandomIndex>()
                 {
                     new RandomIndex() { RandomIndexType = RandomIndexType.OakRidge, Value = 1.476f },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = null },
                     new RandomIndex() { RandomIndexType = RandomIndexType.GoldenWang, Value = 1.5356f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.LaneVerdini, Value = 1.54f },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Noble, Value = 1.44f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.TumalaWan, Value = 1.456f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Aguaron, Value = 1.535f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 1.5365f }
-                },
+                } },
                 new RandomIndexCollection() { Quantity = 13, RandomIndices = new List<RandomIndex>()
                 {
                     new RandomIndex() { RandomIndexType = RandomIndexType.OakRidge, Value = 1.564f },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = null },
                     new RandomIndex() { RandomIndexType = RandomIndexType.GoldenWang, Value = 1.5571f },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.LaneVerdini, Value = null },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.LaneVerdini, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Noble, Value = 1.46f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.TumalaWan, Value = 1.474f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Aguaron, Value = 1.555f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 1.5551f }
-                },
+                } },
                 new RandomIndexCollection() { Quantity = 14, RandomIndices = new List<RandomIndex>()
                 {
                     new RandomIndex() { RandomIndexType = RandomIndexType.OakRidge, Value = 1.568f },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = null },
                     new RandomIndex() { RandomIndexType = RandomIndexType.GoldenWang, Value = 1.5714f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.LaneVerdini, Value = 1.57f },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Noble, Value = 1.48f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.TumalaWan, Value = 1.491f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Aguaron, Value = 1.570f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 1.5713f }
-                },
+                } },
                 new RandomIndexCollection() { Quantity = 15, RandomIndices = new List<RandomIndex>()
                 {
                     new RandomIndex() { RandomIndexType = RandomIndexType.OakRidge, Value = 1.586f },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.Wharton, Value = null },
                     new RandomIndex() { RandomIndexType = RandomIndexType.GoldenWang, Value = 1.5831f },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.LaneVerdini, Value = null },
-                    new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.LaneVerdini, Value = null },
+                    //new RandomIndex() { RandomIndexType = RandomIndexType.Forman, Value = null },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Noble, Value = 1.49f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.TumalaWan, Value = 1.501f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.Aguaron, Value = 1.583f },
                     new RandomIndex() { RandomIndexType = RandomIndexType.AlonsoLamata, Value = 1.5838f }
-                }
+                } }
             };
 
-            return consistencyIndex / (double)randomIndices[alternativesCount].Wharton;
+            var temp = randomIndexCollections.FirstOrDefault(ric => ric.Quantity == alternativesCount)
+                .RandomIndices.Where(ri => ri.RandomIndexType == RandomIndexType.Wharton)
+                .Select(ri => ri.Value)
+                .FirstOrDefault();
+
+
+            //return consistencyIndex / (double)randomIndices[alternativesCount].Wharton;
+            return consistencyIndex / (double)temp;
         }
 
         public static double GetConsistencyRatio(Matrix<double> pairwiseComparisonsMatrix)
